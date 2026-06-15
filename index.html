@@ -1685,19 +1685,34 @@
   }
 
   // Collectors email
-  function joinCollectors() {
-    const email = document.getElementById('collectorsEmail').value.trim();
+  async function joinCollectors() {
+    const emailEl = document.getElementById('collectorsEmail');
+    const email = emailEl.value.trim();
     const msg = document.getElementById('collectorsMsg');
     if (!email || !/\S+@\S+\.\S+/.test(email)) {
       msg.textContent = 'Enter a valid email.';
       msg.style.color = '#c06040';
       return;
     }
-    // Submit to Formspree collectors form or your own endpoint
-    // For now: open email to create a record
-    msg.textContent = '✓ You\'re in. Watch your inbox.';
-    msg.style.color = 'var(--gold)';
-    document.getElementById('collectorsEmail').value = '';
+    msg.textContent = 'Adding you…';
+    msg.style.color = 'var(--text-mid)';
+    try {
+      const res = await fetch('https://formspree.io/f/mgobdqbj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, _subject: 'New Collectors Club signup' }),
+      });
+      if (res.ok) {
+        msg.textContent = '✓ You\'re in. Watch your inbox.';
+        msg.style.color = 'var(--gold)';
+        emailEl.value = '';
+      } else {
+        throw new Error();
+      }
+    } catch {
+      msg.textContent = 'Something went wrong — email lacey@rawsunart.com to join.';
+      msg.style.color = '#c06040';
+    }
   }
 </script>
 </body>
