@@ -1,0 +1,1706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RawSunArt — Fine Art Tattooing · Dublin, Ohio</title>
+  <meta name="description" content="Lacey Rawson is a fine art tattooist specializing in watercolor, botanical, and abstract concepts. Private studio at AION Tattoo, Dublin OH. By appointment only." />
+  <meta property="og:title" content="RawSunArt — Where Story Meets Skin" />
+  <meta property="og:description" content="Fine art tattooing in Dublin, Ohio. Watercolor, botanical, and abstract concepts. No templates. Pure storytelling." />
+  <meta property="og:image" content="https://www.rawsunart.com/og-image.jpg" />
+  <meta name="theme-color" content="#0a0805" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --gold: #c9a050;
+      --gold-light: #e0b96a;
+      --gold-dim: rgba(201,160,80,0.12);
+      --bg: #0a0805;
+      --bg2: #111008;
+      --bg3: #181410;
+      --border: rgba(201,160,80,0.15);
+      --text: #f0ebe0;
+      --text-mid: #a09070;
+      --text-dim: #6a5f4a;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: 'Inter', system-ui, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 32px;
+      background: linear-gradient(to bottom, rgba(10,8,5,0.95), transparent);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      transition: background 0.3s;
+    }
+
+    nav.scrolled { background: rgba(10,8,5,0.97); }
+
+    .nav-logo {
+      font-family: var(--serif);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--gold);
+      letter-spacing: 0.04em;
+      text-decoration: none;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text-mid);
+      text-decoration: none;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--text); }
+
+    .nav-book {
+      background: var(--gold) !important;
+      color: #0a0805 !important;
+      padding: 9px 20px;
+      border-radius: 100px;
+      font-weight: 600 !important;
+    }
+
+    .nav-book:hover { background: var(--gold-light) !important; }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 4px;
+    }
+    .hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100svh;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 32px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 70% 40%, rgba(180,120,40,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 20% 70%, rgba(140,80,30,0.12) 0%, transparent 50%),
+        linear-gradient(160deg, #0a0805 30%, #16100a 70%, #0a0805 100%);
+      z-index: 0;
+    }
+
+    /* Watercolor wash effect */
+    .hero-wash {
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      opacity: 0.07;
+      background:
+        radial-gradient(ellipse 60% 80% at 80% 30%, #d4a040 0%, transparent 50%),
+        radial-gradient(ellipse 40% 60% at 60% 70%, #c06820 0%, transparent 50%);
+      filter: blur(60px);
+      z-index: 0;
+    }
+
+    .hero-content { position: relative; z-index: 1; max-width: 720px; }
+
+    .hero-eyebrow {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: block;
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero-title {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 400;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: var(--text);
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--text-mid);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--gold);
+      color: #0a0805;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      text-decoration: none;
+      padding: 16px 32px;
+      border-radius: 100px;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-mid);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      padding: 16px 24px;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .btn-ghost:hover { color: var(--text); border-color: rgba(201,160,80,0.4); }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--text-dim);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, var(--gold-dim), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 1; }
+    }
+
+    /* ── SECTION BASE ── */
+    section { padding: 100px 32px; }
+
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+
+    .section-label {
+      font-size: 0.65rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-label::after {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: var(--gold);
+    }
+
+    .section-title {
+      font-family: var(--serif);
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 24px;
+    }
+
+    .section-title em { font-style: italic; color: var(--gold); }
+
+    /* ── ABOUT ── */
+    #about {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .about-img {
+      aspect-ratio: 4/5;
+      border-radius: 4px;
+      overflow: hidden;
+      position: relative;
+      background: var(--bg3);
+      border: 1px solid var(--border);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Placeholder art for when no photo is provided */
+    .img-placeholder {
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse 70% 60% at 40% 60%, rgba(201,160,80,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 40% at 70% 30%, rgba(180,100,40,0.1) 0%, transparent 50%),
+        var(--bg3);
+      display: flex;
+      align-items: flex-end;
+      padding: 24px;
+    }
+
+    .img-placeholder-label {
+      font-size: 0.65rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .about-text p {
+      color: var(--text-mid);
+      font-size: 1rem;
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .about-text p strong { color: var(--text); font-weight: 500; }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--border);
+    }
+
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat-label {
+      font-size: 0.7rem;
+      color: var(--text-dim);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ── SPECIALTIES ── */
+    #specialties { background: var(--bg); }
+
+    .specialty-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1px;
+      background: var(--border);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: hidden;
+      margin-top: 56px;
+    }
+
+    .specialty-card {
+      background: var(--bg2);
+      padding: 40px 28px;
+      transition: background 0.25s;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .specialty-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.3s;
+    }
+
+    .specialty-card:hover { background: var(--bg3); }
+    .specialty-card:hover::before { transform: scaleX(1); }
+
+    .specialty-num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 600;
+      color: var(--gold-dim);
+      line-height: 1;
+      margin-bottom: 24px;
+      transition: color 0.3s;
+    }
+
+    .specialty-card:hover .specialty-num { color: rgba(201,160,80,0.25); }
+
+    .specialty-name {
+      font-family: var(--serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .specialty-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    /* ── PORTFOLIO ── */
+    #portfolio { background: var(--bg2); }
+
+    .portfolio-intro {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: 48px;
+      gap: 24px;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      grid-template-rows: auto;
+      gap: 12px;
+    }
+
+    .port-item {
+      border-radius: 4px;
+      overflow: hidden;
+      background: var(--bg3);
+      position: relative;
+      border: 1px solid var(--border);
+    }
+
+    .port-item:nth-child(1) { grid-column: span 7; aspect-ratio: 4/3; }
+    .port-item:nth-child(2) { grid-column: span 5; aspect-ratio: 3/4; }
+    .port-item:nth-child(3) { grid-column: span 4; aspect-ratio: 1; }
+    .port-item:nth-child(4) { grid-column: span 4; aspect-ratio: 1; }
+    .port-item:nth-child(5) { grid-column: span 4; aspect-ratio: 1; }
+    .port-item:nth-child(6) { grid-column: span 5; aspect-ratio: 4/5; }
+    .port-item:nth-child(7) { grid-column: span 7; aspect-ratio: 16/9; }
+
+    .port-img-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 200px;
+      background:
+        radial-gradient(ellipse 80% 70% at var(--cx, 50%) var(--cy, 50%), rgba(201,160,80,0.12) 0%, transparent 60%),
+        var(--bg3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .port-item:nth-child(odd) .port-img-placeholder { --cx: 30%; --cy: 60%; }
+    .port-item:nth-child(even) .port-img-placeholder { --cx: 70%; --cy: 40%; }
+
+    .port-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s;
+    }
+
+    .port-item:hover img { transform: scale(1.03); }
+
+    .port-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(10,8,5,0.85) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: flex-end;
+      padding: 20px;
+    }
+
+    .port-item:hover .port-overlay { opacity: 1; }
+
+    .port-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    /* ── PROCESS ── */
+    #process { background: var(--bg); }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 64px;
+      position: relative;
+    }
+
+    .process-grid::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: calc(12.5% + 20px);
+      right: calc(12.5% + 20px);
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--border), var(--gold-dim), var(--border), transparent);
+    }
+
+    .process-step { position: relative; }
+
+    .step-num {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      border: 1px solid var(--border);
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--gold);
+      margin-bottom: 28px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .step-title {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 12px;
+    }
+
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      line-height: 1.7;
+    }
+
+    .step-note {
+      display: inline-block;
+      margin-top: 12px;
+      font-size: 0.7rem;
+      color: var(--gold);
+      letter-spacing: 0.06em;
+      font-weight: 600;
+    }
+
+    /* ── INQUIRY / CTA ── */
+    #inquiry {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .inquiry-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .inquiry-text .section-title { margin-bottom: 20px; }
+
+    .inquiry-text p {
+      color: var(--text-mid);
+      line-height: 1.8;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    .policy-list {
+      list-style: none;
+      margin: 28px 0;
+    }
+
+    .policy-list li {
+      display: flex;
+      gap: 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.85rem;
+      color: var(--text-mid);
+    }
+
+    .policy-list li:last-child { border-bottom: none; }
+
+    .policy-icon {
+      color: var(--gold);
+      font-size: 0.9rem;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .inquiry-form-area {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 40px;
+    }
+
+    .inquiry-form-area h3 {
+      font-family: var(--serif);
+      font-size: 1.4rem;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 8px;
+    }
+
+    .inquiry-form-area p {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 8px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 12px 16px;
+      font-family: var(--sans);
+      font-size: 0.9rem;
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.2s;
+      -webkit-appearance: none;
+    }
+
+    .form-group select option { background: var(--bg2); }
+
+    .form-group input::placeholder,
+    .form-group textarea::placeholder { color: var(--text-dim); }
+
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: rgba(201,160,80,0.5); }
+
+    .form-group textarea { resize: vertical; min-height: 100px; }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+    .form-submit {
+      width: 100%;
+      background: var(--gold);
+      color: #0a0805;
+      border: none;
+      border-radius: 100px;
+      padding: 16px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s;
+      margin-top: 8px;
+    }
+
+    .form-submit:hover { background: var(--gold-light); }
+
+    .form-note {
+      text-align: center;
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      margin-top: 12px;
+    }
+
+    /* OR divider */
+    .or-divider {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin: 20px 0;
+      color: var(--text-dim);
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+    .or-divider::before, .or-divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    .btn-ai {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      width: 100%;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 14px;
+      color: var(--gold);
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .btn-ai:hover { border-color: rgba(201,160,80,0.5); background: var(--gold-dim); }
+
+    .ai-badge {
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,160,80,0.3);
+      color: var(--gold);
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    /* ── COLLECTORS ── */
+    #collectors {
+      background: var(--bg);
+      text-align: center;
+    }
+
+    .collectors-inner {
+      max-width: 640px;
+      margin: 0 auto;
+    }
+
+    .collectors-inner .section-label { justify-content: center; }
+    .collectors-inner .section-label::after { display: none; }
+    .collectors-inner .section-label::before {
+      content: '';
+      display: block;
+      height: 1px;
+      width: 40px;
+      background: var(--gold);
+    }
+
+    .collectors-inner .section-title { margin-bottom: 20px; }
+
+    .collectors-inner p {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      margin-bottom: 36px;
+    }
+
+    .collectors-perks {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
+    }
+
+    .perk {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--text-mid);
+    }
+
+    .perk-icon {
+      font-size: 1.4rem;
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .collectors-email {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+      margin: 0 auto;
+    }
+
+    .collectors-email input {
+      flex: 1;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-right: none;
+      border-radius: 100px 0 0 100px;
+      padding: 14px 20px;
+      font-family: var(--sans);
+      font-size: 0.85rem;
+      color: var(--text);
+      outline: none;
+    }
+
+    .collectors-email input::placeholder { color: var(--text-dim); }
+    .collectors-email input:focus { border-color: rgba(201,160,80,0.4); }
+
+    .collectors-email button {
+      background: var(--gold);
+      color: #0a0805;
+      border: none;
+      border-radius: 0 100px 100px 0;
+      padding: 14px 24px;
+      font-family: var(--sans);
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: background 0.2s;
+    }
+
+    .collectors-email button:hover { background: var(--gold-light); }
+
+    /* ── INSTAGRAM STRIP ── */
+    #social {
+      background: var(--bg2);
+      padding: 60px 32px;
+      text-align: center;
+    }
+
+    .social-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .social-handle {
+      font-family: var(--serif);
+      font-size: 1.5rem;
+      font-style: italic;
+      color: var(--gold);
+      margin-bottom: 32px;
+      text-decoration: none;
+      display: block;
+      transition: color 0.2s;
+    }
+
+    .social-handle:hover { color: var(--gold-light); }
+
+    .ig-strip {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 4px;
+      margin-top: 32px;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .ig-item {
+      aspect-ratio: 1;
+      background: var(--bg3);
+      border-radius: 2px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .ig-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.4s;
+    }
+
+    .ig-item:hover img { transform: scale(1.06); }
+
+    .ig-placeholder {
+      width: 100%;
+      height: 100%;
+      background:
+        radial-gradient(ellipse at var(--cx,50%) var(--cy,50%), rgba(201,160,80,0.08) 0%, transparent 70%),
+        var(--bg3);
+    }
+
+    .ig-item:nth-child(1) .ig-placeholder { --cx: 30%; --cy: 70%; }
+    .ig-item:nth-child(2) .ig-placeholder { --cx: 70%; --cy: 30%; }
+    .ig-item:nth-child(3) .ig-placeholder { --cx: 50%; --cy: 50%; }
+    .ig-item:nth-child(4) .ig-placeholder { --cx: 20%; --cy: 60%; }
+    .ig-item:nth-child(5) .ig-placeholder { --cx: 80%; --cy: 40%; }
+    .ig-item:nth-child(6) .ig-placeholder { --cx: 40%; --cy: 80%; }
+
+    /* ── LOCATION ── */
+    #location {
+      background: var(--bg);
+      padding: 80px 32px;
+    }
+
+    .location-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+
+    .location-details { }
+
+    .location-item {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 28px;
+    }
+
+    .location-icon {
+      color: var(--gold);
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .location-item-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 4px;
+    }
+
+    .location-item-value {
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .location-item-value a {
+      color: var(--gold);
+      text-decoration: none;
+    }
+
+    .location-item-value a:hover { color: var(--gold-light); }
+
+    .map-placeholder {
+      aspect-ratio: 4/3;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 12px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .map-placeholder iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      position: absolute;
+      inset: 0;
+      opacity: 0.85;
+      filter: grayscale(100%) invert(90%) sepia(20%) hue-rotate(180deg);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 48px 32px 32px;
+    }
+
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 48px;
+      margin-bottom: 48px;
+    }
+
+    .footer-brand-name {
+      font-family: var(--serif);
+      font-style: italic;
+      font-size: 1.4rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .footer-brand-tagline {
+      font-size: 0.8rem;
+      color: var(--text-dim);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--text-dim);
+      margin-bottom: 16px;
+    }
+
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a {
+      font-size: 0.85rem;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--text); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+    }
+
+    .footer-powered {
+      font-size: 0.75rem;
+      color: var(--text-dim);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .footer-powered a {
+      color: var(--gold);
+      text-decoration: none;
+      font-weight: 500;
+    }
+
+    /* ── MOBILE ── */
+    @media (max-width: 768px) {
+      nav { padding: 16px 20px; }
+      .nav-links { display: none; }
+      .nav-links.open {
+        display: flex;
+        flex-direction: column;
+        position: fixed;
+        inset: 0;
+        background: rgba(10,8,5,0.98);
+        justify-content: center;
+        align-items: center;
+        gap: 32px;
+        z-index: 99;
+      }
+      .nav-links.open a { font-size: 1.2rem; }
+      .hamburger { display: flex; position: relative; z-index: 101; }
+
+      #hero { padding: 0 20px 60px; }
+      .hero-title { font-size: clamp(2.8rem, 10vw, 4rem); }
+
+      section { padding: 64px 20px; }
+      .section-inner { }
+
+      .about-grid,
+      .inquiry-grid,
+      .location-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img { aspect-ratio: 3/2; }
+
+      .specialty-grid { grid-template-columns: 1fr 1fr; }
+      .specialty-card { padding: 28px 20px; }
+
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .process-grid::before { display: none; }
+
+      .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: auto;
+      }
+      .port-item { grid-column: span 1 !important; aspect-ratio: 1 !important; }
+
+      .ig-strip { grid-template-columns: repeat(3, 1fr); }
+
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+
+      .collectors-email { flex-direction: column; }
+      .collectors-email input {
+        border-right: 1px solid var(--border);
+        border-radius: 100px;
+        margin-bottom: 8px;
+      }
+      .collectors-email button { border-radius: 100px; }
+
+      .form-row { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 480px) {
+      .specialty-grid { grid-template-columns: 1fr; }
+      .process-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr; gap: 16px; }
+      .collectors-perks { gap: 24px; }
+      .ig-strip { grid-template-columns: repeat(3, 1fr); }
+    }
+
+    /* ── UTILITIES ── */
+    .text-gold { color: var(--gold); }
+    .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+
+    /* ── SCROLL REVEAL (lightweight) ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#hero" class="nav-logo">RawSunArt</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Work</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#collectors">Collectors</a></li>
+    <li><a href="#inquiry" class="nav-book">Book</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wash"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Fine Art Tattooing · Dublin, Ohio</div>
+    <h1 class="hero-title">Where<br><em>Story</em><br>Meets Skin</h1>
+    <p class="hero-sub">Watercolor, botanical, and abstract concepts. No templates. No copies. Every piece is original — drawn for you, from concept to ink.</p>
+    <div class="hero-ctas">
+      <a href="#inquiry" class="btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+        Begin Your Inquiry
+      </a>
+      <a href="#portfolio" class="btn-ghost">View the Work</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-img">
+        <!-- Replace src with your actual artist photo -->
+        <div class="img-placeholder">
+          <span class="img-placeholder-label">Artist photo · replace with actual image</span>
+        </div>
+      </div>
+      <div class="about-text">
+        <div class="section-label">The Artist</div>
+        <h2 class="section-title reveal">Lacey Rawson —<br><em>Fine Art Tattooist</em></h2>
+        <p class="reveal reveal-delay-1">I'm a recognized watercolor artist based in Dublin, Ohio, working out of a private studio inside <strong>AION Tattoo</strong>. Every tattoo I do is a collaboration — you bring the concept, I bring it to life on skin.</p>
+        <p class="reveal reveal-delay-2">My work draws from fine art principles: composition, color theory, negative space. I've spent years painting before I ever picked up a tattoo machine, and that training shows in everything I make. <strong>Watercolor is my signature</strong> — painterly, expressive, built to last.</p>
+        <p class="reveal reveal-delay-3">Beyond tattoos, I paint original watercolor pieces and work in ceramics. The same artistic voice runs through all of it.</p>
+        <div class="about-stats reveal reveal-delay-4">
+          <div>
+            <div class="stat-num">100%</div>
+            <div class="stat-label">Custom Work</div>
+          </div>
+          <div>
+            <div class="stat-num">1:1</div>
+            <div class="stat-label">Private Studio</div>
+          </div>
+          <div>
+            <div class="stat-num">∞</div>
+            <div class="stat-label">No Templates</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPECIALTIES -->
+<section id="specialties">
+  <div class="section-inner">
+    <div class="section-label">What I Do</div>
+    <h2 class="section-title reveal">Specialties &<br><em>Styles</em></h2>
+    <div class="specialty-grid">
+      <div class="specialty-card reveal">
+        <div class="specialty-num">01</div>
+        <div class="specialty-name">Watercolor</div>
+        <p class="specialty-desc">My signature. Vivid color washes, soft edges, movement on skin. Anchored with subtle linework so the color holds for years — not months.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-1">
+        <div class="specialty-num">02</div>
+        <div class="specialty-name">Botanical</div>
+        <p class="specialty-desc">Flowers, leaves, vines, herbs. Organic forms with fine detail and intentional composition. Natural subjects, interpreted — never traced.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-2">
+        <div class="specialty-num">03</div>
+        <div class="specialty-name">Abstract</div>
+        <p class="specialty-desc">Shapes, forms, and color without a literal subject. Concept-driven and conversation-led — we figure out what it means to you, then I translate it.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-3">
+        <div class="specialty-num">04</div>
+        <div class="specialty-name">Fine Line</div>
+        <p class="specialty-desc">Delicate, precise single-needle work. Portraits, illustrative pieces, clean linework. Where detail and restraint matter equally.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section id="portfolio">
+  <div class="section-inner">
+    <div class="portfolio-intro">
+      <div>
+        <div class="section-label">Portfolio</div>
+        <h2 class="section-title reveal">Recent <em>Work</em></h2>
+      </div>
+      <a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener" class="btn-ghost reveal" style="height:fit-content;">
+        View all on Instagram ↗
+      </a>
+    </div>
+
+    <!-- Replace the placeholder divs below with <img src="..." alt="..."> tags of your actual portfolio photos -->
+    <!-- Recommended sizes: item 1 → 1200×900px, item 2 → 600×800px, items 3-5 → 600×600px -->
+    <div class="portfolio-grid">
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Botanical</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Fine Line</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Abstract</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Botanical</span></div>
+      </div>
+      <div class="port-item">
+        <div class="port-img-placeholder"></div>
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label">How It Works</div>
+    <h2 class="section-title reveal">From Concept<br>to <em>Skin</em></h2>
+    <div class="process-grid">
+      <div class="process-step reveal">
+        <div class="step-num">1</div>
+        <div class="step-title">Your Inquiry</div>
+        <p class="step-desc">Tell me your concept — the subject, the feeling, where you want it, how big. The more you share, the more I can shape to you.</p>
+        <span class="step-note">↓ Done through this site or TatzAI</span>
+      </div>
+      <div class="process-step reveal reveal-delay-1">
+        <div class="step-num">2</div>
+        <div class="step-title">I Review & Quote</div>
+        <p class="step-desc">I read your inquiry and respond with a quote based on size, complexity, and placement. Usually within 48 hours.</p>
+        <span class="step-note">↓ No pre-booking sketches</span>
+      </div>
+      <div class="process-step reveal reveal-delay-2">
+        <div class="step-num">3</div>
+        <div class="step-title">Deposit to Book</div>
+        <p class="step-desc">$100 deposit per person holds your appointment and covers design time. It comes off your final price when you arrive.</p>
+        <span class="step-note">↓ Non-refundable for no-shows</span>
+      </div>
+      <div class="process-step reveal reveal-delay-3">
+        <div class="step-num">4</div>
+        <div class="step-title">Appointment Day</div>
+        <p class="step-desc">We go over the design together before anything touches skin. I work from your brief — artistic interpretation is always part of the deal.</p>
+        <span class="step-note">↓ Private studio, no walk-ins</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INQUIRY / BOOKING -->
+<section id="inquiry">
+  <div class="section-inner">
+    <div class="inquiry-grid">
+      <div class="inquiry-text">
+        <div class="section-label">Book an Appointment</div>
+        <h2 class="section-title reveal">Let's Make<br>Something <em>Yours</em></h2>
+        <p class="reveal reveal-delay-1">I take limited appointments to make sure every client gets the time and attention the work deserves. I'm booked through the session — not rushing between tables.</p>
+        <p class="reveal reveal-delay-2">If you know what you want and you're ready to commit, fill out the inquiry form. If you're still figuring it out, let TatzAI help you get there — it'll ask the right questions and put together a proper brief before your name ever hits my inbox.</p>
+
+        <ul class="policy-list reveal reveal-delay-3">
+          <li>
+            <span class="policy-icon">◆</span>
+            <span><strong>$100 deposit</strong> required to hold your appointment. Applied to your final price.</span>
+          </li>
+          <li>
+            <span class="policy-icon">◆</span>
+            <span><strong>All work is custom.</strong> I don't copy existing tattoos or pull from templates.</span>
+          </li>
+          <li>
+            <span class="policy-icon">◆</span>
+            <span><strong>No pre-booking sketches.</strong> Design is part of your session — that's what your time is for.</span>
+          </li>
+          <li>
+            <span class="policy-icon">◆</span>
+            <span><strong>$250/hr</strong> or project-quoted. Minimum one hour.</span>
+          </li>
+          <li>
+            <span class="policy-icon">◆</span>
+            <span><strong>Cancellations</strong> need 48+ hours notice or deposit is forfeited.</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="inquiry-form-area reveal reveal-delay-1">
+        <h3>Start Your Inquiry</h3>
+        <p>Fill this out and I'll get back to you within 48 hours with a quote and availability.</p>
+
+        <!-- AI Option -->
+        <a href="https://elitetatz.vercel.app/agent?mode=rawsunart" class="btn-ai" target="_blank" rel="noopener">
+          <span>✦</span>
+          Let TatzAI walk you through it
+          <span class="ai-badge">AI</span>
+        </a>
+
+        <div class="or-divider">or fill out the form</div>
+
+        <form id="inquiryForm" onsubmit="handleSubmit(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="name">Your Name</label>
+              <input type="text" id="name" name="name" placeholder="First Last" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@example.com" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="concept">What do you want? <span style="color:var(--gold)">*</span></label>
+            <textarea id="concept" name="concept" placeholder="Describe the subject, meaning, or idea. The more detail, the better." required></textarea>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="placement">Placement</label>
+              <input type="text" id="placement" name="placement" placeholder="e.g. inner forearm" />
+            </div>
+            <div class="form-group">
+              <label for="size">Approx. Size</label>
+              <select id="size" name="size">
+                <option value="">Select…</option>
+                <option>Small (under 3")</option>
+                <option>Medium (3–6")</option>
+                <option>Large (6"+)</option>
+                <option>Sleeve / Full piece</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="style">Style</label>
+              <select id="style" name="style">
+                <option value="">Select…</option>
+                <option>Watercolor</option>
+                <option>Botanical</option>
+                <option>Abstract</option>
+                <option>Fine Line / Black & Grey</option>
+                <option>Open to suggestions</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="budget">Budget Range</label>
+              <select id="budget" name="budget">
+                <option value="">Select…</option>
+                <option>$250–$400</option>
+                <option>$400–$700</option>
+                <option>$700–$1,200</option>
+                <option>$1,200+</option>
+                <option>Not sure</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="reference">Reference or Notes</label>
+            <textarea id="reference" name="reference" placeholder="Any references, inspo images, or extra context. (You can also email them to lacey@rawsunart.com)" style="min-height:70px;"></textarea>
+          </div>
+          <button type="submit" class="form-submit" id="submitBtn">Send Inquiry</button>
+          <p class="form-note" id="formMsg"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLLECTORS CLUB -->
+<section id="collectors">
+  <div class="collectors-inner">
+    <div class="section-label">The Collectors Club</div>
+    <h2 class="section-title reveal">First Access.<br><em>No Spam.</em></h2>
+    <p class="reveal reveal-delay-1">Join a small list of collectors and clients who get early access to flash drops, original paintings, ceramics, and open appointment slots before they hit anywhere else. Free. Private. Worth it.</p>
+    <div class="collectors-perks reveal reveal-delay-2">
+      <div class="perk">
+        <span class="perk-icon">⚡</span>
+        Flash drop alerts
+      </div>
+      <div class="perk">
+        <span class="perk-icon">🎨</span>
+        Original art drops
+      </div>
+      <div class="perk">
+        <span class="perk-icon">📅</span>
+        Early booking slots
+      </div>
+      <div class="perk">
+        <span class="perk-icon">🏺</span>
+        Ceramics releases
+      </div>
+    </div>
+    <div class="collectors-email reveal reveal-delay-3">
+      <input type="email" id="collectorsEmail" placeholder="your@email.com" />
+      <button onclick="joinCollectors()">Join the Club</button>
+    </div>
+    <p id="collectorsMsg" style="font-size:0.8rem;color:var(--gold);margin-top:12px;min-height:20px;"></p>
+  </div>
+</section>
+
+<!-- INSTAGRAM STRIP -->
+<section id="social">
+  <p class="social-label">Follow the Work</p>
+  <a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener" class="social-handle">@raw.sun.art</a>
+
+  <!-- Replace these placeholders with actual <img> tags pulled from your Instagram -->
+  <div class="ig-strip">
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+    <div class="ig-item"><div class="ig-placeholder"></div></div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location">
+  <div class="section-inner">
+    <div class="location-grid">
+      <div class="location-details">
+        <div class="section-label">Find the Studio</div>
+        <h2 class="section-title reveal">Dublin, Ohio<br><em>Private Studio</em></h2>
+        <div class="location-item reveal reveal-delay-1">
+          <span class="location-icon">📍</span>
+          <div>
+            <div class="location-item-label">Address</div>
+            <div class="location-item-value">
+              <a href="https://maps.google.com/?q=2719+Sawbury+Blvd+Dublin+OH+43235" target="_blank" rel="noopener">
+                2719 Sawbury Blvd<br>Dublin, OH 43235
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="location-item reveal reveal-delay-2">
+          <span class="location-icon">🏛</span>
+          <div>
+            <div class="location-item-label">Studio</div>
+            <div class="location-item-value">Inside AION Tattoo<br><span style="color:var(--text-dim);font-size:0.85rem;">Private resident artist suite</span></div>
+          </div>
+        </div>
+        <div class="location-item reveal reveal-delay-3">
+          <span class="location-icon">📞</span>
+          <div>
+            <div class="location-item-label">Phone</div>
+            <div class="location-item-value"><a href="tel:6145537172">614-553-7172</a></div>
+          </div>
+        </div>
+        <div class="location-item reveal reveal-delay-4">
+          <span class="location-icon">📧</span>
+          <div>
+            <div class="location-item-label">Email</div>
+            <div class="location-item-value"><a href="mailto:lacey@rawsunart.com">lacey@rawsunart.com</a></div>
+          </div>
+        </div>
+        <div class="location-item reveal reveal-delay-4">
+          <span class="location-icon">🗓</span>
+          <div>
+            <div class="location-item-label">Appointments</div>
+            <div class="location-item-value">By appointment only<br><span style="color:var(--text-dim);font-size:0.85rem;">No walk-ins accepted</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="map-placeholder reveal reveal-delay-1">
+        <iframe
+          title="RawSunArt Studio Location"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3053!2d-83.1!3d40.1!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjcxOSBTYXdidXJ5IEJsdmQsIER1YmxpbiwgT0ggNDMyMzU!5e0!3m2!1sen!2sus!4v1234567890"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand-name">RawSunArt</div>
+      <p class="footer-brand-tagline">Fine art tattooing in Dublin, Ohio. Watercolor, botanical, and abstract concepts. Original art. No templates. Pure storytelling.</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Navigate</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#portfolio">Work</a></li>
+        <li><a href="#process">Process</a></li>
+        <li><a href="#collectors">Collectors Club</a></li>
+        <li><a href="#inquiry">Book</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener">@raw.sun.art</a></li>
+        <li><a href="mailto:lacey@rawsunart.com">lacey@rawsunart.com</a></li>
+        <li><a href="tel:6145537172">614-553-7172</a></li>
+        <li><a href="https://maps.google.com/?q=2719+Sawbury+Blvd+Dublin+OH+43235" target="_blank" rel="noopener">AION Tattoo, Dublin OH</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p class="footer-copy">© 2026 RawSunArt · All Rights Reserved</p>
+    <p class="footer-powered">
+      Booking powered by
+      <a href="https://elitetatz.vercel.app" target="_blank" rel="noopener">TatzAI</a>
+    </p>
+  </div>
+</footer>
+
+<script>
+  // Nav scroll effect
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 60);
+  }, { passive: true });
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('navLinks');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => navLinks.classList.remove('open'));
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+
+  // Inquiry form — submits to Formspree (update with your form ID)
+  // Replace YOUR_FORM_ID below: go to formspree.io, create a free form, paste the ID
+  const FORMSPREE_ID = 'YOUR_FORM_ID';
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    const btn = document.getElementById('submitBtn');
+    const msg = document.getElementById('formMsg');
+    btn.textContent = 'Sending…';
+    btn.disabled = true;
+
+    const data = new FormData(e.target);
+
+    try {
+      const res = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' },
+      });
+
+      if (res.ok) {
+        msg.textContent = '✓ Received — I\'ll get back to you within 48 hours.';
+        msg.style.color = 'var(--gold)';
+        e.target.reset();
+      } else {
+        throw new Error();
+      }
+    } catch {
+      // Fallback: open email client
+      const name = data.get('name');
+      const concept = data.get('concept');
+      const placement = data.get('placement');
+      const size = data.get('size');
+      const budget = data.get('budget');
+      const subject = encodeURIComponent(`Tattoo Inquiry — ${name}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\nConcept: ${concept}\nPlacement: ${placement}\nSize: ${size}\nBudget: ${budget}`
+      );
+      window.location.href = `mailto:lacey@rawsunart.com?subject=${subject}&body=${body}`;
+      msg.textContent = 'Opening your email app…';
+    }
+
+    btn.textContent = 'Send Inquiry';
+    btn.disabled = false;
+  }
+
+  // Collectors email
+  function joinCollectors() {
+    const email = document.getElementById('collectorsEmail').value.trim();
+    const msg = document.getElementById('collectorsMsg');
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
+      msg.textContent = 'Enter a valid email.';
+      msg.style.color = '#c06040';
+      return;
+    }
+    // Submit to Formspree collectors form or your own endpoint
+    // For now: open email to create a record
+    msg.textContent = '✓ You\'re in. Watch your inbox.';
+    msg.style.color = 'var(--gold)';
+    document.getElementById('collectorsEmail').value = '';
+  }
+</script>
+</body>
+</html>
