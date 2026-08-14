@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AION Tattoo at Hell City — Book the Crew</title>
+  <meta name="description" content="The AION Tattoo crew is at Hell City Phoenix — Lacey, Iggy, Shayna & Leighton. Realism, watercolor, Japanese, neo-traditional. Tell us what you want and we'll match you." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0a0805" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --gold:#c9a050;--gold-light:#e0b96a;--gold-dim:rgba(201,160,80,0.12);
+      --bg:#0a0805;--bg2:#111008;--bg3:#181410;--border:rgba(201,160,80,0.15);
+      --text:#f0ebe0;--text-mid:#a09070;--text-dim:#6a5f4a;
+      --serif:'Playfair Display',Georgia,serif;--sans:system-ui,-apple-system,'Segoe UI',sans-serif;
+    }
+    body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:16px;line-height:1.6;min-height:100svh}
+    .wrap{max-width:480px;margin:0 auto;padding:32px 20px 60px;position:relative;z-index:1}
+    .glow{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(ellipse 90% 50% at 50% 0%,rgba(180,120,40,0.18) 0%,transparent 60%),radial-gradient(ellipse 60% 40% at 20% 80%,rgba(140,80,30,0.10) 0%,transparent 50%)}
+    .brand{font-family:var(--serif);font-style:italic;font-size:1.2rem;color:var(--gold);text-decoration:none;letter-spacing:0.04em}
+    .eyebrow{margin-top:36px;font-size:0.68rem;font-weight:600;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px}
+    .eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+    h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.2rem,10vw,3rem);line-height:1.08;margin:14px 0 16px}
+    h1 em{font-style:italic;color:var(--gold)}
+    .lede{color:var(--text-mid);font-size:1rem;line-height:1.7;margin-bottom:28px}
+    .lede strong{color:var(--text);font-weight:500}
+    .crew{display:grid;gap:10px;margin-bottom:28px}
+    .artist{display:flex;gap:14px;align-items:flex-start;background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:16px 16px;text-decoration:none;transition:border-color 0.2s}
+    .artist:hover{border-color:rgba(201,160,80,0.45)}
+    .artist-ini{width:44px;height:44px;flex-shrink:0;border-radius:50%;background:var(--gold-dim);border:1px solid rgba(201,160,80,0.3);display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:1.1rem;color:var(--gold)}
+    .artist-name{font-family:var(--serif);font-size:1.15rem;color:var(--text)}
+    .artist-styles{font-size:0.8rem;color:var(--text-mid);margin-top:2px}
+    .artist-arrow{margin-left:auto;color:var(--gold);align-self:center;font-size:0.85rem}
+    .card{background:var(--bg3);border:1px solid var(--border);border-radius:12px;padding:26px 22px;margin-bottom:22px}
+    .card h2{font-family:var(--serif);font-weight:400;font-size:1.5rem;margin-bottom:6px}
+    .card h2 em{font-style:italic;color:var(--gold)}
+    .card>p{font-size:0.85rem;color:var(--text-mid);margin-bottom:18px}
+    input,select,textarea{width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:100px;padding:13px 20px;font-family:var(--sans);font-size:1rem;color:var(--text);outline:none;margin-bottom:10px;transition:border-color 0.2s;-webkit-appearance:none}
+    textarea{border-radius:14px;resize:vertical}
+    input::placeholder,textarea::placeholder{color:var(--text-dim)}
+    input:focus,select:focus,textarea:focus{border-color:rgba(201,160,80,0.5)}
+    button{width:100%;background:var(--gold);color:#0a0805;border:none;border-radius:100px;padding:16px;font-family:var(--sans);font-size:0.9rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;cursor:pointer;transition:background 0.2s}
+    button:hover{background:var(--gold-light)}
+    button:disabled{opacity:0.7}
+    .err{text-align:center;font-size:0.8rem;color:#c06040;margin-top:10px;min-height:1em}
+    .fine{text-align:center;font-size:0.72rem;color:var(--text-dim);margin-top:10px}
+    .success{display:none;text-align:center;padding:8px 0}
+    .success.show{display:block}
+    .success .big{font-size:2.6rem;margin-bottom:10px}
+    .success p{font-size:0.9rem;color:var(--text-mid);line-height:1.7}
+    .links{text-align:center;margin-top:6px}
+    .links a{color:var(--text-mid);font-size:0.85rem;text-decoration:none}
+    .links a:hover{color:var(--text)}
+    .links .dot{color:var(--text-dim);margin:0 10px}
+    footer{text-align:center;margin-top:36px;font-size:0.72rem;color:var(--text-dim)}
+  </style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="wrap">
+  <a class="brand" href="https://www.aiontattoo.com">AION Tattoo</a>
+
+  <div class="eyebrow">Hell City · Phoenix, AZ</div>
+  <h1>The crew is <em>here.</em></h1>
+  <p class="lede">Columbus's <strong>AION Tattoo</strong> came to Hell City. Realism, watercolor, Japanese, neo-traditional — four artists, one booth. Tell us what you want and we'll get you with the right one.</p>
+
+  <div class="crew">
+    <a class="artist" href="https://www.aiontattoo.com/iggy-sweeney" target="_blank" rel="noopener">
+      <span class="artist-ini">IS</span>
+      <span><span class="artist-name">Iggy Sweeney</span><span class="artist-styles">Realism · Portraiture · Fine art — founder, 25+ yrs</span></span>
+      <span class="artist-arrow">↗</span>
+    </a>
+    <a class="artist" href="https://www.aiontattoo.com/lacey-rawson" target="_blank" rel="noopener">
+      <span class="artist-ini">LR</span>
+      <span><span class="artist-name">Lacey Rawson</span><span class="artist-styles">Watercolor · Botanical · Illustrative</span></span>
+      <span class="artist-arrow">↗</span>
+    </a>
+    <a class="artist" href="https://www.aiontattoo.com" target="_blank" rel="noopener">
+      <span class="artist-ini">SS</span>
+      <span><span class="artist-name">Shayna Soderstrom</span><span class="artist-styles">Japanese · Traditional · Neo-traditional · Illustrative</span></span>
+      <span class="artist-arrow">↗</span>
+    </a>
+    <a class="artist" href="https://www.aiontattoo.com" target="_blank" rel="noopener">
+      <span class="artist-ini">LM</span>
+      <span><span class="artist-name">Leighton Monaco</span><span class="artist-styles">Versatile · Multi-style — Columbus native</span></span>
+      <span class="artist-arrow">↗</span>
+    </a>
+  </div>
+
+  <div class="card">
+    <div id="inkState">
+      <h2>Want ink <em>this weekend?</em></h2>
+      <p>Tell us your idea and who you're drawn to — the booth gets pinged and someone follows up fast.</p>
+      <form id="inkForm">
+        <input type="text" name="name" placeholder="First name" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required inputmode="email" />
+        <select name="artist" id="inkArtist">
+          <option value="Not sure — match me">Which artist? (or match me)</option>
+          <option value="Iggy Sweeney">Iggy — realism / portraits</option>
+          <option value="Lacey Rawson">Lacey — watercolor / botanical</option>
+          <option value="Shayna Soderstrom">Shayna — Japanese / traditional</option>
+          <option value="Leighton Monaco">Leighton — versatile</option>
+        </select>
+        <textarea name="idea" rows="3" placeholder="What are you thinking? (subject, size, placement…)"></textarea>
+        <button type="submit" id="inkBtn">Send to the Booth</button>
+        <p class="err" id="inkErr"></p>
+        <p class="fine">Booth's busy — someone will get back to you by email. Walk-ups welcome as the schedule allows.</p>
+      </form>
+    </div>
+    <div class="success" id="inkSuccess">
+      <div class="big">📨</div>
+      <h2>Sent to the <em>booth.</em></h2>
+      <p>Watch your email — the crew will follow up. Come find us at the AION table in the meantime.</p>
+    </div>
+  </div>
+
+  <div class="links">
+    <a href="https://www.aiontattoo.com" target="_blank" rel="noopener">aiontattoo.com</a><span class="dot">·</span><a href="https://www.instagram.com/aiontattoo/" target="_blank" rel="noopener">@aiontattoo</a>
+  </div>
+
+  <footer>AION Tattoo · Columbus, Ohio · at Hell City Phoenix<br />Booth tech by <a href="https://elitetatz.vercel.app/artists" style="color:var(--gold);text-decoration:none;">EliteTatz</a></footer>
+</div>
+
+<script>
+  document.getElementById('inkForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('inkBtn');
+    const err = document.getElementById('inkErr');
+    const f = e.target;
+    const email = f.email.value.trim();
+    const name = f.name.value.trim();
+    const artist = f.artist.value;
+    const idea = f.idea.value.trim();
+    if (!/\S+@\S+\.\S+/.test(email)) { err.textContent = 'Enter a valid email.'; return; }
+    btn.textContent = 'Sending…'; btn.disabled = true; err.textContent = '';
+    const note = `Wants: ${artist}${idea ? ' — ' + idea : ''}`;
+    let ok = false;
+    // Safety net: Formspree
+    try {
+      const res = await fetch('https://formspree.io/f/mgobdqbj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, artist, idea, _subject: 'AION Hell City booth — ' + artist }),
+      });
+      ok = res.ok;
+    } catch { ok = false; }
+    // Community backend: pings the booth inbox (Reply-To the client)
+    fetch('https://elitetatz.vercel.app/api/community/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, artistHandle: 'aion', eventSlug: 'aion-hellcity-2026', source: 'aion-hellcity-2026', intent: 'walkup', note }),
+    }).catch(() => {});
+    if (ok) {
+      document.getElementById('inkState').style.display = 'none';
+      document.getElementById('inkSuccess').classList.add('show');
+    } else {
+      err.textContent = 'Bad signal? Try again, or come to the AION booth.';
+      btn.textContent = 'Send to the Booth'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
