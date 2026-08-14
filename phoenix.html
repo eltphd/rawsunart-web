@@ -168,6 +168,27 @@
     </div>
   </div>
 
+  <div class="card" style="padding:24px 22px;">
+    <div id="walkupState">
+      <h2 style="font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:6px;">🔥 Want ink <em style="font-style:italic;color:var(--gold);">this weekend?</em></h2>
+      <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:16px;">Tell Lacey what you're thinking — she gets pinged instantly and replies straight to your email.</p>
+      <form id="walkupForm">
+        <input type="text" name="name" placeholder="First name" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required inputmode="email" />
+        <textarea name="idea" placeholder="What are you thinking? (subject, size, placement…)" rows="3" style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 20px;font-family:var(--sans);font-size:1rem;color:var(--text);outline:none;margin-bottom:10px;resize:vertical;"></textarea>
+        <button type="submit" id="walkupBtn">Ping Lacey</button>
+        <p class="err" id="walkupErr"></p>
+      </form>
+    </div>
+    <div class="success" id="walkupSuccess">
+      <div class="big">📨</div>
+      <h2>Sent to <em>Lacey.</em></h2>
+      <p>Watch your email — she replies directly. Come by the booth in the meantime.</p>
+    </div>
+  </div>
+
+  <a href="/shop" style="display:block;text-align:center;text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:14px;color:var(--gold);font-size:0.88rem;font-weight:600;margin-bottom:28px;">🖼 Shop prints — booth pickup available →</a>
+
   <div class="strip" aria-label="Recent work">
     <img src="images/webp/butterflysandwatercolor.webp" alt="Watercolor butterfly tattoo" loading="lazy" decoding="async" />
     <img src="images/webp/crystalswatercolor.webp" alt="Watercolor crystals tattoo" loading="lazy" decoding="async" />
@@ -182,6 +203,40 @@
 </div>
 
 <script>
+  document.getElementById('walkupForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('walkupBtn');
+    const err = document.getElementById('walkupErr');
+    const f = e.target;
+    const email = f.email.value.trim();
+    const name = f.name.value.trim();
+    const idea = f.idea.value.trim();
+    if (!/\S+@\S+\.\S+/.test(email)) { err.textContent = 'Enter a valid email.'; return; }
+    btn.textContent = 'Sending…'; btn.disabled = true; err.textContent = '';
+    let ok = false;
+    try {
+      const res = await fetch('https://formspree.io/f/mgobdqbj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, name, idea, _subject: '🔥 WALK-UP REQUEST (Hell City) — ' + (name || email) }),
+      });
+      ok = res.ok;
+    } catch { ok = false; }
+    // Mirror to the community backend: pings Lacey with Reply-To set to the client
+    fetch('https://elitetatz.vercel.app/api/community/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, name, artistHandle: 'rawsunart', eventSlug: 'hellcity-phoenix-2026', source: 'hellcity-phoenix-2026', intent: 'walkup', note: idea }),
+    }).catch(() => {});
+    if (ok) {
+      document.getElementById('walkupState').style.display = 'none';
+      document.getElementById('walkupSuccess').classList.add('show');
+    } else {
+      err.textContent = 'Bad signal? Try again, or just come to the booth.';
+      btn.textContent = 'Ping Lacey'; btn.disabled = false;
+    }
+  });
+
   document.getElementById('joinForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('joinBtn');
