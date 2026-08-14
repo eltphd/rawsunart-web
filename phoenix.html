@@ -128,6 +128,16 @@
     .links a:hover { color: var(--text); }
     .links .dot { color: var(--text-dim); margin: 0 10px; }
     footer { text-align: center; margin-top: 40px; font-size: 0.72rem; color: var(--text-dim); }
+
+    .quickrow { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 22px; }
+    .quickbtn {
+      display: flex; flex-direction: column; align-items: center; gap: 4px;
+      padding: 14px 8px; border: 1px solid var(--border); border-radius: 12px;
+      background: var(--bg3); text-decoration: none; color: var(--text);
+      font-size: 1.4rem; transition: border-color 0.2s, background 0.2s;
+    }
+    .quickbtn span { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em; color: var(--text-mid); }
+    .quickbtn:hover { border-color: rgba(201,160,80,0.5); background: var(--gold-dim); }
   </style>
 </head>
 <body>
@@ -137,12 +147,40 @@
 
   <div class="eyebrow">Hell City · Phoenix, AZ</div>
   <h1>Hey <em>Phoenix.</em></h1>
-  <p class="lede">Thanks for stopping by the booth. I'm <strong>Lacey</strong> — watercolor tattooer, painter, and potter based in Ohio. <strong>My art travels.</strong> Join the club and it can find you, wherever you live.</p>
+  <p class="lede">Thanks for stopping by the booth. I'm <strong>Lacey</strong> — watercolor tattooer based in Ohio. <strong>Want ink this weekend?</strong> Reach me fast below, or join the club so my art can find you wherever you live.</p>
+
+  <!-- Fast direct contact -->
+  <div class="quickrow">
+    <a class="quickbtn" href="sms:+16148585574">💬<span>Text</span></a>
+    <a class="quickbtn" href="tel:+16148585574">📞<span>Call</span></a>
+    <a class="quickbtn" href="https://ig.me/m/raw.sun.art" target="_blank" rel="noopener">📸<span>DM</span></a>
+  </div>
+
+  <div class="card" style="padding:24px 22px;">
+    <div id="walkupState">
+      <h2 style="font-family:var(--serif);font-weight:400;font-size:1.4rem;margin-bottom:6px;">🔥 Want ink <em style="font-style:italic;color:var(--gold);">this weekend?</em></h2>
+      <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:16px;">Tell Lacey what you're thinking — she gets pinged instantly and replies straight to your email. Or just text her above.</p>
+      <form id="walkupForm">
+        <input type="text" name="name" placeholder="First name" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required inputmode="email" />
+        <textarea name="idea" placeholder="What are you thinking? (subject, size, placement…)" rows="3" style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 20px;font-family:var(--sans);font-size:1rem;color:var(--text);outline:none;margin-bottom:10px;resize:vertical;"></textarea>
+        <button type="submit" id="walkupBtn">Ping Lacey</button>
+        <p class="err" id="walkupErr"></p>
+      </form>
+    </div>
+    <div class="success" id="walkupSuccess">
+      <div class="big">📨</div>
+      <h2>Sent to <em>Lacey.</em></h2>
+      <p>Watch your email — she replies directly. Booth's busy, so give her a little time; text her above if it's time-sensitive.</p>
+    </div>
+  </div>
+
+  <a href="/shop" style="display:block;text-align:center;text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:14px;color:var(--gold);font-size:0.88rem;font-weight:600;margin-bottom:28px;">🖼 Shop prints — booth pickup available →</a>
 
   <div class="card">
     <div id="joinState">
       <h2>The <em>Collectors Club</em></h2>
-      <p>Free, private, and worth it. This weekend it comes with extras:</p>
+      <p>Not ready to book but love the work? Join — free, private, worth it. This weekend it comes with extras:</p>
       <ul class="perks">
         <li><span class="perk-ico">🎁</span><span><strong>Enter the Hell City giveaway</strong> — an original piece, winner drawn Sunday</span></li>
         <li><span class="perk-ico">✨</span><span><strong>Free watercolor sticker</strong> from the secret stash — show your screen at the booth</span></li>
@@ -167,27 +205,6 @@
       <a class="btn-ghost" href="/#portfolio">See the full portfolio</a>
     </div>
   </div>
-
-  <div class="card" style="padding:24px 22px;">
-    <div id="walkupState">
-      <h2 style="font-family:var(--serif);font-weight:400;font-size:1.3rem;margin-bottom:6px;">🔥 Want ink <em style="font-style:italic;color:var(--gold);">this weekend?</em></h2>
-      <p style="font-size:0.85rem;color:var(--text-mid);margin-bottom:16px;">Tell Lacey what you're thinking — she gets pinged instantly and replies straight to your email.</p>
-      <form id="walkupForm">
-        <input type="text" name="name" placeholder="First name" autocomplete="given-name" />
-        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required inputmode="email" />
-        <textarea name="idea" placeholder="What are you thinking? (subject, size, placement…)" rows="3" style="width:100%;background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 20px;font-family:var(--sans);font-size:1rem;color:var(--text);outline:none;margin-bottom:10px;resize:vertical;"></textarea>
-        <button type="submit" id="walkupBtn">Ping Lacey</button>
-        <p class="err" id="walkupErr"></p>
-      </form>
-    </div>
-    <div class="success" id="walkupSuccess">
-      <div class="big">📨</div>
-      <h2>Sent to <em>Lacey.</em></h2>
-      <p>Watch your email — she replies directly. Come by the booth in the meantime.</p>
-    </div>
-  </div>
-
-  <a href="/shop" style="display:block;text-align:center;text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:14px;color:var(--gold);font-size:0.88rem;font-weight:600;margin-bottom:28px;">🖼 Shop prints — booth pickup available →</a>
 
   <div class="strip" aria-label="Recent work">
     <img src="images/webp/butterflysandwatercolor.webp" alt="Watercolor butterfly tattoo" loading="lazy" decoding="async" />
