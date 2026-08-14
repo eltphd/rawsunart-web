@@ -3,6 +3,10 @@
   "trailingSlash": false,
   "redirects": [
     { "source": "/hellcity", "destination": "/phoenix", "permanent": false },
-    { "source": "/hell-city", "destination": "/phoenix", "permanent": false }
+    { "source": "/hell-city", "destination": "/phoenix", "permanent": false },
+    { "source": "/Tattoos", "destination": "/#portfolio", "permanent": true },
+    { "source": "/tattoos", "destination": "/#portfolio", "permanent": true },
+    { "source": "/originals", "destination": "/#studio", "permanent": true },
+    { "source": "/bookingrequest", "destination": "/#inquiry", "permanent": true }
   ]
 }

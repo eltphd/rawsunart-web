@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /phoenix
+
+Sitemap: https://rawsunart.com/sitemap.xml
