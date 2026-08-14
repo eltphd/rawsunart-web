@@ -175,6 +175,13 @@
     </div>
   </div>
 
+  <!-- Availability (shows a live calendar if configured, else fast fallback) -->
+  <div class="card" style="padding:20px 22px;margin-bottom:22px;">
+    <h2 style="font-family:var(--serif);font-weight:400;font-size:1.2rem;margin-bottom:6px;">When's she <em style="font-style:italic;color:var(--gold);">free?</em></h2>
+    <div id="availEmbed"></div>
+    <p id="availFallback" style="font-size:0.85rem;color:var(--text-mid);margin:0;">Booth's slammed all weekend. <a href="sms:+16148585574" style="color:var(--gold);text-decoration:none;font-weight:600;">Text her</a> and she'll tell you the next open slot — beats walking the floor looking for her.</p>
+  </div>
+
   <a href="/shop" style="display:block;text-align:center;text-decoration:none;border:1px solid var(--border);border-radius:100px;padding:14px;color:var(--gold);font-size:0.88rem;font-weight:600;margin-bottom:28px;">🖼 Shop prints — booth pickup available →</a>
 
   <div class="card">
@@ -220,6 +227,19 @@
 </div>
 
 <script>
+  // Availability: paste Lacey's public Google Calendar embed URL here to go live.
+  // (Google Calendar → Settings → your calendar → "Integrate calendar" → copy the
+  //  "Embed code" src URL, or the public URL. Leave '' to keep the text fallback.)
+  const CAL_EMBED_URL = '';
+  if (CAL_EMBED_URL) {
+    document.getElementById('availFallback').style.display = 'none';
+    const f = document.createElement('iframe');
+    f.src = CAL_EMBED_URL;
+    f.style = 'width:100%;height:320px;border:1px solid var(--border);border-radius:10px;';
+    f.loading = 'lazy';
+    document.getElementById('availEmbed').appendChild(f);
+  }
+
   document.getElementById('walkupForm').addEventListener('submit', async (e) => {
     e.preventDefault();
     const btn = document.getElementById('walkupBtn');
