@@ -1852,8 +1852,9 @@
   <div class="footer-bottom">
     <p class="footer-copy">© 2026 RawSunArt · All Rights Reserved</p>
     <p class="footer-powered">
-      Booking powered by
-      <a href="https://elitetatz.vercel.app" target="_blank" rel="noopener">TatzAI</a>
+      Powered by
+      <a href="https://elitetatz.vercel.app/artists" target="_blank" rel="noopener">TatzAI</a>
+      · <a href="/for-artists">Artists: get your own hub →</a>
     </p>
   </div>
 </footer>
@@ -1972,6 +1973,12 @@
         body: JSON.stringify({ email, source: 'homepage', _subject: 'New Collectors Club signup' }),
       });
       if (res.ok) {
+        // Mirror into the community backend (best-effort; Formspree above is the safety net)
+        fetch('https://elitetatz.vercel.app/api/community/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email, artistHandle: 'rawsunart', source: 'homepage' }),
+        }).catch(() => {});
         msg.textContent = '✓ You\'re in. Watch your inbox.';
         msg.style.color = 'var(--gold)';
         emailEl.value = '';
