@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hey Phoenix — RawSunArt at Hell City</title>
+  <meta name="description" content="Thanks for stopping by the booth at Hell City. Join Lacey Rawson's Collectors Club for the original-art giveaway, early pottery drops, and travel dates." />
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0a0805" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a050;
+      --gold-light: #e0b96a;
+      --gold-dim: rgba(201,160,80,0.12);
+      --bg: #0a0805;
+      --bg2: #111008;
+      --bg3: #181410;
+      --border: rgba(201,160,80,0.15);
+      --text: #f0ebe0;
+      --text-mid: #a09070;
+      --text-dim: #6a5f4a;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.6;
+      min-height: 100svh;
+    }
+    .wrap { max-width: 460px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 50% at 50% 0%, rgba(180,120,40,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(140,80,30,0.10) 0%, transparent 50%);
+    }
+    .brand {
+      font-family: var(--serif); font-style: italic; font-size: 1.1rem;
+      color: var(--gold); text-decoration: none; letter-spacing: 0.04em;
+    }
+    .eyebrow {
+      margin-top: 40px;
+      font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold);
+      display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    h1 {
+      font-family: var(--serif); font-weight: 400;
+      font-size: clamp(2.6rem, 12vw, 3.6rem); line-height: 1.05;
+      margin: 16px 0 18px;
+    }
+    h1 em { font-style: italic; color: var(--gold); }
+    .lede { color: var(--text-mid); font-size: 1rem; line-height: 1.7; margin-bottom: 32px; }
+    .lede strong { color: var(--text); font-weight: 500; }
+
+    .card {
+      background: var(--bg3); border: 1px solid var(--border);
+      border-radius: 12px; padding: 28px 22px; margin-bottom: 28px;
+    }
+    .card h2 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; margin-bottom: 6px; }
+    .card h2 em { font-style: italic; color: var(--gold); }
+    .card > p { font-size: 0.88rem; color: var(--text-mid); margin-bottom: 20px; line-height: 1.6; }
+
+    .perks { list-style: none; margin-bottom: 22px; }
+    .perks li {
+      display: flex; gap: 10px; align-items: flex-start;
+      padding: 9px 0; border-bottom: 1px solid var(--border);
+      font-size: 0.85rem; color: var(--text-mid);
+    }
+    .perks li:last-child { border-bottom: none; }
+    .perks li strong { color: var(--text); font-weight: 500; }
+    .perk-ico { flex-shrink: 0; }
+
+    input {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 14px 20px; font-family: var(--sans);
+      font-size: 1rem; color: var(--text); outline: none; margin-bottom: 10px;
+      transition: border-color 0.2s; -webkit-appearance: none;
+    }
+    input::placeholder { color: var(--text-dim); }
+    input:focus { border-color: rgba(201,160,80,0.5); }
+    button {
+      width: 100%; background: var(--gold); color: #0a0805; border: none;
+      border-radius: 100px; padding: 16px; font-family: var(--sans);
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+    }
+    button:hover { background: var(--gold-light); }
+    button:disabled { opacity: 0.7; }
+    .fine { text-align: center; font-size: 0.72rem; color: var(--text-dim); margin-top: 12px; }
+    .err { text-align: center; font-size: 0.8rem; color: #c06040; margin-top: 10px; min-height: 1em; }
+
+    /* Success state */
+    .success { display: none; text-align: center; padding: 8px 0; }
+    .success.show { display: block; }
+    .success .big { font-size: 2.6rem; margin-bottom: 10px; }
+    .success h2 { margin-bottom: 10px; }
+    .success p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; margin-bottom: 20px; }
+    .success p strong { color: var(--gold); font-weight: 600; }
+    .sticker-pass {
+      border: 1px dashed rgba(201,160,80,0.5); border-radius: 10px;
+      background: var(--gold-dim); padding: 16px; margin-bottom: 22px;
+      font-size: 0.9rem; color: var(--text);
+    }
+    .btn-ghost {
+      display: block; text-align: center; color: var(--gold); font-size: 0.88rem;
+      font-weight: 600; text-decoration: none; padding: 14px;
+      border: 1px solid var(--border); border-radius: 100px; margin-bottom: 10px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+    .btn-ghost:hover { border-color: rgba(201,160,80,0.5); background: var(--gold-dim); }
+
+    .strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 28px; }
+    .strip img {
+      width: 100%; aspect-ratio: 1; object-fit: cover; display: block;
+      border-radius: 6px; border: 1px solid var(--border);
+    }
+    .links { text-align: center; }
+    .links a { color: var(--text-mid); font-size: 0.85rem; text-decoration: none; }
+    .links a:hover { color: var(--text); }
+    .links .dot { color: var(--text-dim); margin: 0 10px; }
+    footer { text-align: center; margin-top: 40px; font-size: 0.72rem; color: var(--text-dim); }
+  </style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="wrap">
+  <a class="brand" href="/">RawSunArt</a>
+
+  <div class="eyebrow">Hell City · Phoenix, AZ</div>
+  <h1>Hey <em>Phoenix.</em></h1>
+  <p class="lede">Thanks for stopping by the booth. I'm <strong>Lacey</strong> — watercolor tattooer, painter, and potter based in Ohio. <strong>My art travels.</strong> Join the club and it can find you, wherever you live.</p>
+
+  <div class="card">
+    <div id="joinState">
+      <h2>The <em>Collectors Club</em></h2>
+      <p>Free, private, and worth it. This weekend it comes with extras:</p>
+      <ul class="perks">
+        <li><span class="perk-ico">🎁</span><span><strong>Enter the Hell City giveaway</strong> — an original piece, winner drawn Sunday</span></li>
+        <li><span class="perk-ico">✨</span><span><strong>Free watercolor sticker</strong> from the secret stash — show your screen at the booth</span></li>
+        <li><span class="perk-ico">🏺</span><span><strong>24-hour early access</strong> to pottery &amp; original art drops before Instagram sees them</span></li>
+        <li><span class="perk-ico">🗺</span><span><strong>Travel dates first</strong> — know when I'm coming to your city before books open</span></li>
+      </ul>
+      <form id="joinForm">
+        <input type="text" name="name" placeholder="First name (optional)" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="your@email.com" autocomplete="email" required inputmode="email" />
+        <button type="submit" id="joinBtn">Join &amp; Enter the Giveaway</button>
+        <p class="err" id="joinErr"></p>
+        <p class="fine">No spam. A monthly studio diary + first dibs. Unsubscribe anytime.</p>
+      </form>
+    </div>
+
+    <div class="success" id="successState">
+      <div class="big">🎉</div>
+      <h2>You're <em>in.</em></h2>
+      <div class="sticker-pass">Show this screen at the booth for a <strong>free sticker</strong> from the secret stash ✦</div>
+      <p>You're entered in the <strong>original art giveaway</strong> — winner announced Sunday by email. Watch your inbox for the studio diary.</p>
+      <a class="btn-ghost" href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener">Follow @raw.sun.art ↗</a>
+      <a class="btn-ghost" href="/#portfolio">See the full portfolio</a>
+    </div>
+  </div>
+
+  <div class="strip" aria-label="Recent work">
+    <img src="images/webp/butterflysandwatercolor.webp" alt="Watercolor butterfly tattoo" loading="lazy" decoding="async" />
+    <img src="images/webp/crystalswatercolor.webp" alt="Watercolor crystals tattoo" loading="lazy" decoding="async" />
+    <img src="images/webp/cardinalcolor.webp" alt="Cardinal watercolor tattoo" loading="lazy" decoding="async" />
+  </div>
+
+  <div class="links">
+    <a href="/#inquiry">Book a tattoo</a><span class="dot">·</span><a href="/#travel">Travel dates</a><span class="dot">·</span><a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener">@raw.sun.art</a>
+  </div>
+
+  <footer>RawSunArt · Lacey Rawson · Ohio-based, travels everywhere</footer>
+</div>
+
+<script>
+  document.getElementById('joinForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('joinBtn');
+    const err = document.getElementById('joinErr');
+    const form = e.target;
+    const email = form.email.value.trim();
+    if (!/\S+@\S+\.\S+/.test(email)) { err.textContent = 'Enter a valid email.'; return; }
+    btn.textContent = 'Adding you…'; btn.disabled = true; err.textContent = '';
+    try {
+      const res = await fetch('https://formspree.io/f/mgobdqbj', {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: form.name.value.trim(),
+          source: 'hellcity-phoenix-2026',
+          giveaway_entry: 'yes',
+          _subject: 'Hell City Phoenix — Collectors Club signup',
+        }),
+      });
+      if (!res.ok) throw new Error();
+      document.getElementById('joinState').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } catch {
+      err.textContent = 'Bad signal? Try again, or DM @raw.sun.art to join.';
+      btn.textContent = 'Join & Enter the Giveaway'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>

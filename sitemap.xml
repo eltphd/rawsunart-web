@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://rawsunart.com/</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://rawsunart.com/blog</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://rawsunart.com/behind-the-scenes-creating-custom-watercolor-tattoos</loc>
+    <lastmod>2025-09-05</lastmod>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://rawsunart.com/a-letter-from-lacey-on-leaving-healing-and-creating-forward</loc>
+    <lastmod>2025-05-09</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rawsunart.com/ink-healing-and-honesty-april-reflections</loc>
+    <lastmod>2025-04-15</lastmod>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://rawsunart.com/privacypolicy</loc>
+    <lastmod>2025-05-01</lastmod>
+    <priority>0.3</priority>
+  </url>
+</urlset>
