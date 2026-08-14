@@ -3,10 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>RawSunArt — Fine Art Tattooing · Dublin, Ohio</title>
-  <meta name="description" content="Lacey Rawson is a fine art tattooist specializing in watercolor, botanical, and abstract concepts. Private studio at AION Tattoo, Dublin OH. By appointment only." />
+  <title>RawSunArt — Watercolor Tattoos, Fine Art &amp; Ceramics · Lacey Rawson</title>
+  <meta name="description" content="Lacey Rawson is a watercolor tattooer, painter, and potter. Ohio-based, tattooing at conventions across the country, with original art and ceramics you can collect from anywhere." />
   <meta property="og:title" content="RawSunArt — Where Story Meets Skin" />
-  <meta property="og:description" content="Fine art tattooing in Dublin, Ohio. Watercolor, botanical, and abstract concepts. No templates. Pure storytelling." />
+  <meta property="og:description" content="Watercolor tattoos, fine art, and ceramics by Lacey Rawson. Based in Ohio. Traveling everywhere. No templates. Pure storytelling." />
   <meta property="og:image" content="https://www.rawsunart.com/og-image.jpg" />
   <meta name="theme-color" content="#0a0805" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -522,6 +522,124 @@
       text-transform: uppercase;
       color: var(--gold);
       font-weight: 600;
+    }
+
+    /* ── PORTFOLIO FILTERS ── */
+    .filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 32px;
+    }
+
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      color: var(--text-mid);
+      font-family: var(--sans);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 9px 18px;
+      cursor: pointer;
+      transition: color 0.2s, border-color 0.2s, background 0.2s;
+    }
+
+    .filter-btn:hover { color: var(--text); border-color: rgba(201,160,80,0.4); }
+
+    .filter-btn.active {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: #0a0805;
+    }
+
+    .port-item.hidden { display: none; }
+
+    .portfolio-grid.filtered .port-item {
+      grid-column: span 4 !important;
+      aspect-ratio: 1 !important;
+    }
+
+    .port-item:nth-child(n+8) { grid-column: span 4; aspect-ratio: 1; }
+
+    /* ── STUDIO (FINE ART) ── */
+    #studio {
+      background: var(--bg);
+      border-top: 1px solid var(--border);
+    }
+
+    .studio-note {
+      color: var(--text-mid);
+      font-size: 0.95rem;
+      line-height: 1.8;
+      max-width: 560px;
+      margin-bottom: 8px;
+    }
+
+    .studio-note strong { color: var(--text); font-weight: 500; }
+
+    .studio-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 36px; }
+
+    /* ── TRAVEL ── */
+    #travel {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+    }
+
+    .travel-list { margin-top: 48px; }
+
+    .travel-row {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 20px;
+      align-items: center;
+      padding: 26px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .travel-row:first-child { border-top: 1px solid var(--border); }
+
+    .travel-city {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .travel-city em { font-style: italic; color: var(--gold); }
+
+    .travel-meta { font-size: 0.82rem; color: var(--text-mid); }
+
+    .travel-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      background: var(--gold-dim);
+      border: 1px solid rgba(201,160,80,0.3);
+      border-radius: 100px;
+      padding: 3px 10px;
+      margin-left: 10px;
+      vertical-align: middle;
+    }
+
+    .travel-link {
+      color: var(--gold);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .travel-link:hover { color: var(--gold-light); }
+
+    @media (max-width: 600px) {
+      .travel-row { grid-template-columns: 1fr; gap: 10px; }
+      .travel-badge { margin-left: 0; margin-top: 6px; display: inline-block; }
     }
 
     /* ── PROCESS ── */
@@ -1175,7 +1293,8 @@
   <ul class="nav-links" id="navLinks">
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Work</a></li>
-    <li><a href="#process">Process</a></li>
+    <li><a href="#studio">Fine Art</a></li>
+    <li><a href="#travel">Travel</a></li>
     <li><a href="#collectors">Collectors</a></li>
     <li><a href="#inquiry" class="nav-book">Book</a></li>
   </ul>
@@ -1189,15 +1308,16 @@
   <div class="hero-bg"></div>
   <div class="hero-wash"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Fine Art Tattooing · Dublin, Ohio</div>
+    <div class="hero-eyebrow">Watercolor Tattoos · Fine Art · Ceramics</div>
     <h1 class="hero-title">Where<br><em>Story</em><br>Meets Skin</h1>
-    <p class="hero-sub">Watercolor, botanical, and abstract concepts. No templates. No copies. Every piece is original — drawn for you, from concept to ink.</p>
+    <p class="hero-sub">No templates. No copies. Every piece is original — drawn for you, from concept to ink. Based in Ohio, tattooing at conventions across the country, and making art you can collect from anywhere.</p>
     <div class="hero-ctas">
       <a href="#inquiry" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
-        Begin Your Inquiry
+        Book a Tattoo
       </a>
-      <a href="#portfolio" class="btn-ghost">View the Work</a>
+      <a href="#studio" class="btn-ghost">Explore Fine Art &amp; Ceramics</a>
+      <a href="#travel" class="btn-ghost">Travel Dates</a>
     </div>
   </div>
   <div class="hero-scroll" aria-hidden="true">
@@ -1219,7 +1339,7 @@
       <div class="about-text">
         <div class="section-label">The Artist</div>
         <h2 class="section-title reveal">Lacey Rawson —<br><em>Fine Art Tattooist</em></h2>
-        <p class="reveal reveal-delay-1">I'm a recognized watercolor artist based in Dublin, Ohio, working out of a private studio inside <strong>AION Tattoo</strong>. Every tattoo I do is a collaboration — you bring the concept, I bring it to life on skin.</p>
+        <p class="reveal reveal-delay-1">I'm a recognized watercolor artist based in Columbus, Ohio, working out of a private studio inside <strong>AION Tattoo</strong> — and tattooing on the road at conventions across the country. Every tattoo I do is a collaboration — you bring the concept, I bring it to life on skin.</p>
         <p class="reveal reveal-delay-2">My work draws from fine art principles: composition, color theory, negative space. I've spent years painting before I ever picked up a tattoo machine, and that training shows in everything I make. <strong>Watercolor is my signature</strong> — painterly, expressive, built to last.</p>
         <p class="reveal reveal-delay-3">Beyond tattoos, I paint original watercolor pieces and work in ceramics. The same artistic voice runs through all of it.</p>
         <div class="about-stats reveal reveal-delay-4">
@@ -1284,34 +1404,145 @@
       </a>
     </div>
 
-    <div class="portfolio-grid">
-      <div class="port-item">
-        <img src="images/butterflysandwatercolor.JPG" alt="Watercolor butterfly tattoo by Lacey Rawson" />
+    <div class="filter-bar" id="filterBar" role="group" aria-label="Filter portfolio by style">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="watercolor">Watercolor</button>
+      <button class="filter-btn" data-filter="botanical">Botanical</button>
+      <button class="filter-btn" data-filter="blackgrey">Black &amp; Grey</button>
+      <button class="filter-btn" data-filter="abstract">Abstract</button>
+    </div>
+
+    <div class="portfolio-grid" id="portfolioGrid">
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/butterflysandwatercolor.webp" alt="Watercolor butterfly tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/crystalswatercolor.JPG" alt="Watercolor crystals tattoo by Lacey Rawson" />
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/crystalswatercolor.webp" alt="Watercolor crystals tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/birdybluewatercolor.JPG" alt="Blue bird watercolor tattoo by Lacey Rawson" />
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/birdybluewatercolor.webp" alt="Blue bird watercolor tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/cardinalcolor.JPG" alt="Cardinal color tattoo by Lacey Rawson" />
-        <div class="port-overlay"><span class="port-tag">Color</span></div>
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/cardinalcolor.webp" alt="Cardinal color tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/flowersanddaisy.JPG" alt="Flowers and daisy tattoo by Lacey Rawson" />
+      <div class="port-item" data-tags="botanical">
+        <img src="images/webp/flowersanddaisy.webp" alt="Flowers and daisy tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Botanical</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/blackroses.JPG" alt="Black roses tattoo by Lacey Rawson" />
+      <div class="port-item" data-tags="blackgrey botanical">
+        <img src="images/webp/blackroses.webp" alt="Black roses tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Black &amp; Grey</span></div>
       </div>
-      <div class="port-item">
-        <img src="images/colordna.JPG" alt="Color DNA watercolor tattoo by Lacey Rawson" />
+      <div class="port-item" data-tags="abstract watercolor">
+        <img src="images/webp/colordna.webp" alt="Color DNA watercolor tattoo by Lacey Rawson" loading="lazy" decoding="async" />
         <div class="port-overlay"><span class="port-tag">Abstract</span></div>
+      </div>
+      <div class="port-item" data-tags="watercolor botanical">
+        <img src="images/webp/Fallleaveswatercolor.webp" alt="Fall leaves watercolor tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/crosswatercolor.webp" alt="Cross watercolor tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+      <div class="port-item" data-tags="watercolor">
+        <img src="images/webp/buirdywatercolor.webp" alt="Bird watercolor tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Watercolor</span></div>
+      </div>
+      <div class="port-item" data-tags="blackgrey abstract">
+        <img src="images/webp/blackabstraction.webp" alt="Black abstraction tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Abstract</span></div>
+      </div>
+      <div class="port-item" data-tags="blackgrey">
+        <img src="images/webp/buddahblack.webp" alt="Buddha black and grey tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Black &amp; Grey</span></div>
+      </div>
+      <div class="port-item" data-tags="botanical">
+        <img src="images/webp/cameraandflowers.webp" alt="Camera and flowers tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Botanical</span></div>
+      </div>
+      <div class="port-item" data-tags="blackgrey">
+        <img src="images/webp/spiderblack.webp" alt="Spider black and grey tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Black &amp; Grey</span></div>
+      </div>
+      <div class="port-item" data-tags="blackgrey abstract">
+        <img src="images/webp/eyeswierdblack.webp" alt="Surreal eyes black tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Abstract</span></div>
+      </div>
+      <div class="port-item" data-tags="botanical">
+        <img src="images/webp/flowersandheart.webp" alt="Flowers and heart tattoo by Lacey Rawson" loading="lazy" decoding="async" />
+        <div class="port-overlay"><span class="port-tag">Botanical</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STUDIO / FINE ART -->
+<section id="studio">
+  <div class="section-inner">
+    <div class="section-label">The Studio</div>
+    <h2 class="section-title reveal">Beyond<br><em>Skin</em></h2>
+    <p class="studio-note reveal reveal-delay-1">The same hand that holds the machine holds the brush. I paint <strong>original watercolors</strong>, draw in <strong>charcoal and ink</strong>, and throw <strong>one-of-a-kind ceramics</strong> — and you don't have to be in Ohio (or ready for a tattoo) to own a piece.</p>
+    <div class="specialty-grid">
+      <div class="specialty-card reveal">
+        <div class="specialty-num">01</div>
+        <div class="specialty-name">Original Paintings</div>
+        <p class="specialty-desc">Watercolor originals in the same voice as my tattoo work. One painting, one owner — when it's gone, it's gone.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-1">
+        <div class="specialty-num">02</div>
+        <div class="specialty-name">Charcoal &amp; Ink</div>
+        <p class="specialty-desc">Loose, expressive drawings and studies. The raw side of the sketchbook, available as originals.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-2">
+        <div class="specialty-num">03</div>
+        <div class="specialty-name">Ceramics</div>
+        <p class="specialty-desc">Hand-thrown, hand-painted pottery. Small batches that tend to disappear fast — collectors hear first.</p>
+      </div>
+      <div class="specialty-card reveal reveal-delay-3">
+        <div class="specialty-num">04</div>
+        <div class="specialty-name">Prints &amp; Flash</div>
+        <p class="specialty-desc">Prints of favorite pieces and available flash sheets. The most affordable way to start collecting.</p>
+      </div>
+    </div>
+    <div class="studio-ctas reveal reveal-delay-3">
+      <a href="#collectors" class="btn-primary">Get First Access to Drops</a>
+      <a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener" class="btn-ghost">DM to purchase ↗</a>
+    </div>
+  </div>
+</section>
+
+<!-- TRAVEL & CONVENTIONS -->
+<section id="travel">
+  <div class="section-inner">
+    <div class="section-label">On the Road</div>
+    <h2 class="section-title reveal">My Art<br><em>Travels</em></h2>
+    <p class="studio-note reveal reveal-delay-1">Home base is Columbus, Ohio — but the work doesn't stay there. Catch me at a convention, or get on the list to hear when I'm headed to your city.</p>
+    <div class="travel-list reveal reveal-delay-2">
+      <div class="travel-row">
+        <div>
+          <div class="travel-city">Phoenix, AZ <em>· Hell City Tattoo Festival</em><span class="travel-badge">At the booth now</span></div>
+          <div class="travel-meta">August 2026 · Walk-ups as the schedule allows · Booth specials for Collectors Club members</div>
+        </div>
+        <a class="travel-link" href="/phoenix">Booth page →</a>
+      </div>
+      <div class="travel-row">
+        <div>
+          <div class="travel-city">Columbus, OH <em>· AION Tattoo</em><span class="travel-badge">Home studio</span></div>
+          <div class="travel-meta">Year-round · Private resident suite · By appointment only</div>
+        </div>
+        <a class="travel-link" href="#inquiry">Book →</a>
+      </div>
+      <div class="travel-row">
+        <div>
+          <div class="travel-city">Your city <em>· next?</em></div>
+          <div class="travel-meta">Conventions and guest spots are announced to the Collectors Club before books open anywhere else.</div>
+        </div>
+        <a class="travel-link" href="#collectors">Get first word →</a>
       </div>
     </div>
   </div>
@@ -1410,6 +1641,20 @@
             </div>
           </div>
           <div class="form-group">
+            <label for="location">Where do you want to be tattooed?</label>
+            <select id="location" name="location" onchange="handleLocationChange(this)">
+              <option value="">Select…</option>
+              <option value="columbus">Columbus studio — AION Tattoo, Dublin OH</option>
+              <option value="hellcity-phoenix">Hell City — Phoenix, AZ (this weekend)</option>
+              <option value="future-convention">A future convention or guest spot</option>
+              <option value="unsure">Not sure yet</option>
+            </select>
+          </div>
+          <div class="form-group" id="conventionCityGroup" style="display:none;">
+            <label for="conventionCity">Which city or convention?</label>
+            <input type="text" id="conventionCity" name="convention_city" placeholder="e.g. Hell City Columbus, Villain Arts Philly…" />
+          </div>
+          <div class="form-group">
             <label for="concept">What do you want? <span style="color:var(--gold)">*</span></label>
             <textarea id="concept" name="concept" placeholder="Describe the subject, meaning, or idea. The more detail, the better." required></textarea>
           </div>
@@ -1505,12 +1750,12 @@
 
   <!-- Replace these placeholders with actual <img> tags pulled from your Instagram -->
   <div class="ig-strip">
-    <div class="ig-item"><img src="images/Fallleaveswatercolor.JPG" alt="Fall leaves watercolor tattoo" /></div>
-    <div class="ig-item"><img src="images/crosswatercolor.JPG" alt="Cross watercolor tattoo" /></div>
-    <div class="ig-item"><img src="images/buirdywatercolor.JPG" alt="Bird watercolor tattoo" /></div>
-    <div class="ig-item"><img src="images/blackabstraction.JPG" alt="Black abstraction tattoo" /></div>
-    <div class="ig-item"><img src="images/buddahblack.JPG" alt="Buddha black tattoo" /></div>
-    <div class="ig-item"><img src="images/cameraandflowers.JPG" alt="Camera and flowers tattoo" /></div>
+    <div class="ig-item"><img src="images/webp/Fallleaveswatercolor.webp" alt="Fall leaves watercolor tattoo" loading="lazy" decoding="async" /></div>
+    <div class="ig-item"><img src="images/webp/crosswatercolor.webp" alt="Cross watercolor tattoo" loading="lazy" decoding="async" /></div>
+    <div class="ig-item"><img src="images/webp/buirdywatercolor.webp" alt="Bird watercolor tattoo" loading="lazy" decoding="async" /></div>
+    <div class="ig-item"><img src="images/webp/blackabstraction.webp" alt="Black abstraction tattoo" loading="lazy" decoding="async" /></div>
+    <div class="ig-item"><img src="images/webp/buddahblack.webp" alt="Buddha black tattoo" loading="lazy" decoding="async" /></div>
+    <div class="ig-item"><img src="images/webp/cameraandflowers.webp" alt="Camera and flowers tattoo" loading="lazy" decoding="async" /></div>
   </div>
 </section>
 
@@ -1578,7 +1823,7 @@
   <div class="footer-grid">
     <div>
       <div class="footer-brand-name">RawSunArt</div>
-      <p class="footer-brand-tagline">Fine art tattooing in Dublin, Ohio. Watercolor, botanical, and abstract concepts. Original art. No templates. Pure storytelling.</p>
+      <p class="footer-brand-tagline">Watercolor tattoos, fine art, and ceramics by Lacey Rawson. Based in Ohio, traveling everywhere. Original art. No templates. Pure storytelling.</p>
     </div>
     <div>
       <div class="footer-col-title">Navigate</div>
@@ -1625,6 +1870,28 @@
   navLinks.querySelectorAll('a').forEach(a => {
     a.addEventListener('click', () => navLinks.classList.remove('open'));
   });
+
+  // Portfolio filtering
+  const filterBar = document.getElementById('filterBar');
+  const portfolioGrid = document.getElementById('portfolioGrid');
+  filterBar.addEventListener('click', (e) => {
+    const btn = e.target.closest('.filter-btn');
+    if (!btn) return;
+    filterBar.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    portfolioGrid.classList.toggle('filtered', filter !== 'all');
+    portfolioGrid.querySelectorAll('.port-item').forEach(item => {
+      const tags = (item.dataset.tags || '').split(' ');
+      item.classList.toggle('hidden', filter !== 'all' && !tags.includes(filter));
+    });
+  });
+
+  // Conditional booking logic
+  function handleLocationChange(sel) {
+    document.getElementById('conventionCityGroup').style.display =
+      sel.value === 'future-convention' ? 'block' : 'none';
+  }
 
   // Scroll reveal
   const reveals = document.querySelectorAll('.reveal');
@@ -1698,7 +1965,7 @@
       const res = await fetch('https://formspree.io/f/mgobdqbj', {
         method: 'POST',
         headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, _subject: 'New Collectors Club signup' }),
+        body: JSON.stringify({ email, source: 'homepage', _subject: 'New Collectors Club signup' }),
       });
       if (res.ok) {
         msg.textContent = '✓ You\'re in. Watch your inbox.';

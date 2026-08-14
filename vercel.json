@@ -1,4 +1,8 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "redirects": [
+    { "source": "/hellcity", "destination": "/phoenix", "permanent": false },
+    { "source": "/hell-city", "destination": "/phoenix", "permanent": false }
+  ]
 }
