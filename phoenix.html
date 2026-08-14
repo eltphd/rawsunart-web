@@ -178,7 +178,7 @@
     <a href="/#inquiry">Book a tattoo</a><span class="dot">·</span><a href="/#travel">Travel dates</a><span class="dot">·</span><a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener">@raw.sun.art</a>
   </div>
 
-  <footer>RawSunArt · Lacey Rawson · Ohio-based, travels everywhere</footer>
+  <footer>RawSunArt · Lacey Rawson · Ohio-based, travels everywhere<br /><a href="/for-artists" style="color:var(--gold);text-decoration:none;">Artists: get a hub like this →</a></footer>
 </div>
 
 <script>
@@ -203,6 +203,19 @@
         }),
       });
       if (!res.ok) throw new Error();
+      // Mirror into the community backend (best-effort; Formspree above is the safety net)
+      fetch('https://elitetatz.vercel.app/api/community/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          email,
+          name: form.name.value.trim(),
+          artistHandle: 'rawsunart',
+          eventSlug: 'hellcity-phoenix-2026',
+          source: 'hellcity-phoenix-2026',
+          giveawayEntry: true,
+        }),
+      }).catch(() => {});
       document.getElementById('joinState').style.display = 'none';
       document.getElementById('successState').classList.add('show');
       window.scrollTo({ top: 0, behavior: 'smooth' });

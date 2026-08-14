@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Artists — Get a Hub Like This</title>
+  <meta name="description" content="This site runs itself: AI-qualified bookings, convention QR funnels, and a collectors list that grows while the artist tattoos. Artists and shop owners: get yours." />
+  <meta name="theme-color" content="#0a0805" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --gold: #c9a050; --gold-light: #e0b96a; --gold-dim: rgba(201,160,80,0.12);
+      --bg: #0a0805; --bg2: #111008; --bg3: #181410;
+      --border: rgba(201,160,80,0.15);
+      --text: #f0ebe0; --text-mid: #a09070; --text-dim: #6a5f4a;
+      --serif: 'Playfair Display', Georgia, serif;
+      --sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
+    }
+    body { background: var(--bg); color: var(--text); font-family: var(--sans); font-size: 16px; line-height: 1.6; min-height: 100svh; }
+    .wrap { max-width: 460px; margin: 0 auto; padding: 32px 20px 60px; position: relative; z-index: 1; }
+    .glow {
+      position: fixed; inset: 0; z-index: 0; pointer-events: none;
+      background:
+        radial-gradient(ellipse 90% 50% at 50% 0%, rgba(180,120,40,0.18) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 20% 80%, rgba(140,80,30,0.10) 0%, transparent 50%);
+    }
+    .brand { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--gold); text-decoration: none; }
+    .eyebrow {
+      margin-top: 40px; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--gold); display: flex; align-items: center; gap: 10px;
+    }
+    .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
+    h1 { font-family: var(--serif); font-weight: 400; font-size: clamp(2.1rem, 9vw, 2.9rem); line-height: 1.1; margin: 16px 0 18px; }
+    h1 em { font-style: italic; color: var(--gold); }
+    .lede { color: var(--text-mid); font-size: 1rem; line-height: 1.7; margin-bottom: 28px; }
+    .lede strong { color: var(--text); font-weight: 500; }
+    .pillar {
+      background: var(--bg3); border: 1px solid var(--border); border-radius: 12px;
+      padding: 18px 18px; margin-bottom: 12px;
+    }
+    .pillar-title { font-weight: 600; margin-bottom: 6px; font-size: 0.95rem; }
+    .pillar p { font-size: 0.85rem; color: var(--text-mid); line-height: 1.6; }
+    .demo {
+      display: block; text-decoration: none; border: 1px dashed rgba(201,160,80,0.5);
+      background: var(--gold-dim); border-radius: 12px; padding: 16px 18px; margin: 24px 0 32px;
+    }
+    .demo-label { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px; }
+    .demo p { font-size: 0.85rem; color: var(--text); }
+    .demo span { color: var(--text-mid); }
+    .card { background: var(--bg3); border: 1px solid var(--border); border-radius: 12px; padding: 26px 22px; margin: 28px 0; }
+    .card h2 { font-family: var(--serif); font-weight: 400; font-size: 1.45rem; margin-bottom: 6px; }
+    .card h2 em { font-style: italic; color: var(--gold); }
+    .card > p { font-size: 0.85rem; color: var(--text-mid); margin-bottom: 18px; }
+    input, select {
+      width: 100%; background: var(--bg2); border: 1px solid var(--border);
+      border-radius: 100px; padding: 13px 20px; font-family: var(--sans);
+      font-size: 1rem; color: var(--text); outline: none; margin-bottom: 10px;
+      transition: border-color 0.2s; -webkit-appearance: none;
+    }
+    input::placeholder { color: var(--text-dim); }
+    input:focus, select:focus { border-color: rgba(201,160,80,0.5); }
+    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+    button {
+      width: 100%; background: var(--gold); color: #0a0805; border: none;
+      border-radius: 100px; padding: 16px; font-family: var(--sans);
+      font-size: 0.9rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; cursor: pointer; transition: background 0.2s;
+    }
+    button:hover { background: var(--gold-light); }
+    button:disabled { opacity: 0.7; }
+    .fine { text-align: center; font-size: 0.72rem; color: var(--text-dim); margin-top: 12px; }
+    .err { text-align: center; font-size: 0.8rem; color: #c06040; margin-top: 10px; min-height: 1em; }
+    .success { display: none; text-align: center; padding: 8px 0; }
+    .success.show { display: block; }
+    .success .big { font-size: 2.6rem; margin-bottom: 10px; }
+    .success p { font-size: 0.9rem; color: var(--text-mid); line-height: 1.7; }
+    footer { text-align: center; margin-top: 36px; font-size: 0.72rem; color: var(--text-dim); }
+    footer a { color: var(--text-mid); text-decoration: none; }
+  </style>
+</head>
+<body>
+<div class="glow" aria-hidden="true"></div>
+<div class="wrap">
+  <a class="brand" href="/">RawSunArt</a>
+
+  <div class="eyebrow">For Artists &amp; Shop Owners</div>
+  <h1>This site runs <em>itself.</em></h1>
+  <p class="lede">You're looking at Lacey's hub — the booth QR funnel, the collectors club, the AI that answers her inquiries <strong>in her voice</strong>, quotes her rates, and takes her deposits. She tattoos. <strong>It handles everything else.</strong></p>
+
+  <div class="pillar">
+    <div class="pillar-title">💬 An AI concierge that sounds like you</div>
+    <p>Trained on how you actually talk to clients. It qualifies, quotes, gates the "can I see a sketch first?" crowd behind your deposit, and hands you a complete brief. Your DMs finally go quiet.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-title">📇 A community engine for conventions</div>
+    <p>A QR funnel for every booth. Signups become a collectors list you own — giveaways, early-access drops, travel announcements. Follow-up happens while you're at the machine.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-title">🌐 One subscription, zero tech homework</div>
+    <p>No website builder, no email tool, no funnel software to learn. The complexity runs invisibly in the background — by design. AI for the admin. Never for the art.</p>
+  </div>
+
+  <a class="demo" href="/phoenix">
+    <div class="demo-label">Live demo · this weekend</div>
+    <p>Scan Lacey's booth QR at Hell City → <span>see the exact funnel your clients would get.</span></p>
+  </a>
+
+  <div class="card">
+    <div id="joinState">
+      <h2>Get <em>your</em> hub</h2>
+      <p>We onboard a few artists at a time so every launch is polished. Convention-season spots go first.</p>
+      <form id="leadForm">
+        <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
+        <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required inputmode="email" />
+        <input type="text" name="instagram" placeholder="@your.instagram" />
+        <div class="row">
+          <select name="role">
+            <option value="artist">I'm an artist</option>
+            <option value="shop_owner">I own a shop</option>
+            <option value="other">Other</option>
+          </select>
+          <input type="text" name="city" placeholder="City" />
+        </div>
+        <button type="submit" id="leadBtn">Get My Hub</button>
+        <p class="err" id="leadErr"></p>
+        <p class="fine">No pitch decks, no spam — a real human (and her very capable AI) will reach out.</p>
+      </form>
+    </div>
+    <div class="success" id="successState">
+      <div class="big">🤝</div>
+      <h2>You're on the <em>list.</em></h2>
+      <p>You'll hear from us directly — usually within a couple of days. Come say hi at Lacey's booth in the meantime.</p>
+    </div>
+  </div>
+
+  <footer>RawSunArt runs on <a href="https://elitetatz.vercel.app/artists">TatzAI</a> · AI for the admin, never for the art</footer>
+</div>
+
+<script>
+  const API = 'https://elitetatz.vercel.app/api/community/artist-lead';
+  document.getElementById('leadForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn = document.getElementById('leadBtn');
+    const err = document.getElementById('leadErr');
+    const f = e.target;
+    const payload = {
+      name: f.name.value.trim(),
+      email: f.email.value.trim(),
+      instagram: f.instagram.value.trim(),
+      role: f.role.value,
+      city: f.city.value.trim(),
+      source: 'hellcity-phoenix-2026',
+    };
+    if (!payload.name || !/\S+@\S+\.\S+/.test(payload.email)) {
+      err.textContent = 'Name and a valid email, please.';
+      return;
+    }
+    btn.textContent = 'Sending…'; btn.disabled = true; err.textContent = '';
+    let ok = false;
+    try {
+      const res = await fetch(API, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload),
+      });
+      ok = res.ok;
+    } catch { ok = false; }
+    if (!ok) {
+      // Fallback: Formspree so no lead is ever lost
+      try {
+        const res = await fetch('https://formspree.io/f/mgobdqbj', {
+          method: 'POST',
+          headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+          body: JSON.stringify({ ...payload, _subject: '🔥 ARTIST LEAD (Hell City) — ' + payload.name }),
+        });
+        ok = res.ok;
+      } catch { ok = false; }
+    }
+    if (ok) {
+      document.getElementById('joinState').style.display = 'none';
+      document.getElementById('successState').classList.add('show');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    } else {
+      err.textContent = 'Something glitched — DM @raw.sun.art and we\'ll take it from there.';
+      btn.textContent = 'Get My Hub'; btn.disabled = false;
+    }
+  });
+</script>
+</body>
+</html>
