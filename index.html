@@ -1358,6 +1358,49 @@
       .ig-strip { grid-template-columns: repeat(3, 1fr); }
     }
 
+    /* ── CONVENTION STICKER ── */
+    .conv-sticker {
+      position: fixed;
+      bottom: 20px;
+      left: 20px;
+      z-index: 90;
+      max-width: 300px;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      background: var(--bg2);
+      border: 1px solid rgba(201,160,80,0.4);
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.45);
+      transform: rotate(-1.5deg);
+      animation: stickerIn 0.5s ease 1s both;
+    }
+    @keyframes stickerIn {
+      from { opacity: 0; transform: rotate(-1.5deg) translateY(20px); }
+      to { opacity: 1; transform: rotate(-1.5deg) translateY(0); }
+    }
+    .conv-sticker-dot {
+      width: 9px; height: 9px; border-radius: 50%;
+      background: var(--gold); margin-top: 5px; flex-shrink: 0;
+      box-shadow: 0 0 0 0 rgba(201,160,80,0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(201,160,80,0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(201,160,80,0); }
+      100% { box-shadow: 0 0 0 0 rgba(201,160,80,0); }
+    }
+    .conv-sticker-body { font-size: 0.78rem; line-height: 1.5; color: var(--text-mid); }
+    .conv-sticker-body strong { color: var(--gold); font-weight: 600; }
+    .conv-sticker-close {
+      position: absolute; top: 6px; right: 10px;
+      background: none; border: none; color: var(--text-dim);
+      font-size: 1.1rem; cursor: pointer; line-height: 1; padding: 2px;
+    }
+    .conv-sticker-close:hover { color: var(--text); }
+    @media (max-width: 480px) { .conv-sticker { left: 12px; right: 12px; bottom: 12px; max-width: none; } }
+
     /* ── UTILITIES ── */
     .text-gold { color: var(--gold); }
     .visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
@@ -1392,6 +1435,16 @@
     <span></span><span></span><span></span>
   </button>
 </nav>
+
+<!-- CONVENTION STICKER -->
+<div class="conv-sticker" id="convSticker" role="status">
+  <button class="conv-sticker-close" id="convStickerClose" aria-label="Dismiss">&times;</button>
+  <span class="conv-sticker-dot" aria-hidden="true"></span>
+  <div class="conv-sticker-body">
+    <strong>Currently at Hell City, Phoenix ✦</strong><br>
+    Tattooing all weekend — I'll reply to messages in the evenings. Thanks for your patience while I make art on the road.
+  </div>
+</div>
 
 <!-- MOBILE MENU (body-level overlay — escapes nav's backdrop-filter containing block) -->
 <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="Menu">
@@ -1980,6 +2033,18 @@
   window.addEventListener('scroll', () => {
     nav.classList.toggle('scrolled', window.scrollY > 60);
   }, { passive: true });
+
+  // Convention sticker (dismissible, remembers)
+  const convSticker = document.getElementById('convSticker');
+  if (convSticker) {
+    if (localStorage.getItem('convStickerDismissed') === '1') {
+      convSticker.style.display = 'none';
+    }
+    document.getElementById('convStickerClose').addEventListener('click', () => {
+      convSticker.style.display = 'none';
+      localStorage.setItem('convStickerDismissed', '1');
+    });
+  }
 
   // Mobile menu (body-level overlay)
   const hamburger = document.getElementById('hamburger');
