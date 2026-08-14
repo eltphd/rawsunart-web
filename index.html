@@ -829,6 +829,37 @@
       padding: 40px;
     }
 
+    /* Direct-contact quick paths (at-home clients) */
+    .direct-contact {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 24px;
+    }
+    .direct-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 14px 8px;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      text-decoration: none;
+      color: var(--text-mid);
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+    .direct-btn:hover { border-color: rgba(201,160,80,0.4); color: var(--text); background: var(--gold-dim); }
+    .direct-btn .direct-ico { font-size: 1.3rem; }
+    .direct-note {
+      font-size: 0.72rem;
+      color: var(--text-dim);
+      text-align: center;
+      margin-top: 12px;
+    }
+
     .inquiry-form-area h3 {
       font-family: var(--serif);
       font-size: 1.4rem;
@@ -1639,14 +1670,14 @@
       </div>
       <div class="process-step reveal reveal-delay-2">
         <div class="step-num">3</div>
-        <div class="step-title">Deposit to Book</div>
-        <p class="step-desc">$100 deposit per person holds your appointment and covers design time. It comes off your final price when you arrive.</p>
-        <span class="step-note">↓ Non-refundable for no-shows</span>
+        <div class="step-title">Deposit Locks the Design</div>
+        <p class="step-desc">Your $100 deposit reserves my time to design <em>the piece we agreed on</em>, and it comes off your final price. Once I've drawn it, that's your design — big changes after mean a new quote, since size, placement, and skin all change the work.</p>
+        <span class="step-note">↓ Come with your full idea — it saves us both</span>
       </div>
       <div class="process-step reveal reveal-delay-3">
         <div class="step-num">4</div>
         <div class="step-title">Appointment Day</div>
-        <p class="step-desc">We go over the design together before anything touches skin. I work from your brief — artistic interpretation is always part of the deal.</p>
+        <p class="step-desc">We review the design together before anything touches skin. Small tweaks are always welcome — I just can't rescope a whole new piece on the day without re-quoting.</p>
         <span class="step-note">↓ Private studio, no walk-ins</span>
       </div>
     </div>
@@ -1666,7 +1697,7 @@
         <ul class="policy-list reveal reveal-delay-3">
           <li>
             <span class="policy-icon">◆</span>
-            <span><strong>$100 deposit</strong> required to hold your appointment. Applied to your final price.</span>
+            <span><strong>$100 deposit</strong> reserves design time for the piece we agree on, and comes off your final price. Widening the scope later means a fresh quote — so bring your whole vision up front.</span>
           </li>
           <li>
             <span class="policy-icon">◆</span>
@@ -1689,16 +1720,30 @@
 
       <div class="inquiry-form-area reveal reveal-delay-1">
         <h3>Start Your Inquiry</h3>
-        <p>Fill this out and I'll get back to you within 48 hours with a quote and availability.</p>
+        <p>New here? Send a proper brief below and I'll reply within 48 hours. Already a client, or just want to talk? Reach me where you already are:</p>
+
+        <!-- Direct paths for at-home / returning clients -->
+        <div class="direct-contact">
+          <a class="direct-btn" href="sms:+16148585574" aria-label="Text Lacey">
+            <span class="direct-ico">💬</span>Text
+          </a>
+          <a class="direct-btn" href="https://ig.me/m/raw.sun.art" target="_blank" rel="noopener" aria-label="DM on Instagram">
+            <span class="direct-ico">📸</span>Instagram
+          </a>
+          <a class="direct-btn" href="https://www.facebook.com/p/RawSunArt-100086612533745/" target="_blank" rel="noopener" aria-label="Message on Facebook">
+            <span class="direct-ico">💠</span>Facebook
+          </a>
+        </div>
+        <p class="direct-note">Columbus walk-ins &amp; last-minute? Those run through <a href="https://www.aiontattoo.com/lacey-rawson" target="_blank" rel="noopener" style="color:var(--text-mid);">AION Tattoo</a>.</p>
 
         <!-- AI Option -->
-        <a href="https://elitetatz.vercel.app/agent?mode=rawsunart" class="btn-ai" target="_blank" rel="noopener">
+        <a href="https://elitetatz.vercel.app/agent?mode=rawsunart" class="btn-ai" target="_blank" rel="noopener" style="margin-top:20px;">
           <span>✦</span>
-          Let Lacey's concierge walk you through it
+          New idea? Let my concierge shape it with you
           <span class="ai-badge">24/7</span>
         </a>
 
-        <div class="or-divider">or fill out the form</div>
+        <div class="or-divider">or send a full brief</div>
 
         <form id="inquiryForm" onsubmit="handleSubmit(event)">
           <div class="form-row">
