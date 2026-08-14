@@ -2,6 +2,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
+    { "source": "/shop", "destination": "https://elitetatz.vercel.app/drops/rawsunart", "permanent": false },
     { "source": "/hellcity", "destination": "/phoenix", "permanent": false },
     { "source": "/hell-city", "destination": "/phoenix", "permanent": false },
     { "source": "/Tattoos", "destination": "/#portfolio", "permanent": true },
