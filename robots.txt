@@ -1,5 +1,8 @@
 User-agent: *
 Allow: /
-Disallow: /phoenix
+
+# Unoptimized full-size originals — the WebP versions in /images/webp/ are the
+# ones that should surface in Google Images.
+Disallow: /images/*.JPG$
 
 Sitemap: https://rawsunart.com/sitemap.xml

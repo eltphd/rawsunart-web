@@ -4,7 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>For Artists — Get a Hub Like This</title>
-  <meta name="description" content="This site runs itself: AI-qualified bookings, convention QR funnels, and a collectors list that grows while the artist tattoos. Artists and shop owners: get yours." />
+  <meta name="description" content="This site runs itself: AI-qualified bookings and a collectors list that grows while the artist tattoos. Artists and shop owners: get yours." />
+  <!-- B2B page on an artist's local domain. Kept out of the index so it doesn't
+       dilute the site's topical focus on Columbus-area tattoo search. -->
+  <meta name="robots" content="noindex, follow" />
+  <link rel="canonical" href="https://rawsunart.com/for-artists" />
   <meta name="theme-color" content="#0a0805" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -103,15 +107,15 @@
     <p>No website builder, no email tool, no funnel software to learn. The complexity runs invisibly in the background — by design. AI for the admin. Never for the art.</p>
   </div>
 
-  <a class="demo" href="/phoenix">
-    <div class="demo-label">Live demo · this weekend</div>
-    <p>Scan Lacey's booth QR at Hell City → <span>see the exact funnel your clients would get.</span></p>
+  <a class="demo" href="/">
+    <div class="demo-label">Live example</div>
+    <p>See Lacey's hub in the wild → <span>the exact site and booking flow your clients would get.</span></p>
   </a>
 
   <div class="card">
     <div id="joinState">
       <h2>Get <em>your</em> hub</h2>
-      <p>We onboard a few artists at a time so every launch is polished. Convention-season spots go first.</p>
+      <p>We onboard a few artists at a time so every launch is polished. Spots go first to artists who are already booked out.</p>
       <form id="leadForm">
         <input type="text" name="name" placeholder="Your name" autocomplete="name" required />
         <input type="email" name="email" placeholder="you@email.com" autocomplete="email" required inputmode="email" />
@@ -152,7 +156,7 @@
       instagram: f.instagram.value.trim(),
       role: f.role.value,
       city: f.city.value.trim(),
-      source: 'hellcity-phoenix-2026',
+      source: 'for-artists',
     };
     if (!payload.name || !/\S+@\S+\.\S+/.test(payload.email)) {
       err.textContent = 'Name and a valid email, please.';
@@ -174,7 +178,7 @@
         const res = await fetch('https://formspree.io/f/mgobdqbj', {
           method: 'POST',
           headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-          body: JSON.stringify({ ...payload, _subject: '🔥 ARTIST LEAD (Hell City) — ' + payload.name }),
+          body: JSON.stringify({ ...payload, _subject: '🔥 ARTIST LEAD — ' + payload.name }),
         });
         ok = res.ok;
       } catch { ok = false; }
