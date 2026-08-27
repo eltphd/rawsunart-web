@@ -2,50 +2,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    {
-      "source": "/shop",
-      "destination": "/#studio",
-      "permanent": false
-    },
-    {
-      "source": "/phoenix",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/hellcity",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/hell-city",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/aion",
-      "destination": "/",
-      "permanent": true
-    },
-    {
-      "source": "/Tattoos",
-      "destination": "/#portfolio",
-      "permanent": true
-    },
-    {
-      "source": "/tattoos",
-      "destination": "/#portfolio",
-      "permanent": true
-    },
-    {
-      "source": "/originals",
-      "destination": "/#studio",
-      "permanent": true
-    },
-    {
-      "source": "/bookingrequest",
-      "destination": "/#inquiry",
-      "permanent": true
-    }
+    { "source": "/Tattoos", "destination": "/tattoos", "permanent": true },
+    { "source": "/bookingrequest", "destination": "/#inquiry", "permanent": true },
+    { "source": "/shop", "destination": "/originals", "permanent": false },
+    { "source": "/prints", "destination": "/originals", "permanent": false },
+    { "source": "/phoenix", "destination": "/", "permanent": true },
+    { "source": "/hellcity", "destination": "/", "permanent": true },
+    { "source": "/hell-city", "destination": "/", "permanent": true },
+    { "source": "/aion", "destination": "/", "permanent": true }
   ]
 }
