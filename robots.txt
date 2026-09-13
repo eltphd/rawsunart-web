@@ -1,8 +1,30 @@
 User-agent: *
 Allow: /
 
+# AI answer engines and their crawlers are welcome. Keep these explicit so a
+# future edit cannot silently block them.
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Claude-User
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: Applebot-Extended
+Allow: /
+
 # Unoptimized full-size originals — the WebP versions in /images/webp/ are the
 # ones that should surface in Google Images.
+User-agent: *
 Disallow: /images/*.JPG$
 
 Sitemap: https://rawsunart.com/sitemap.xml

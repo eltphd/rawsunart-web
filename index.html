@@ -36,9 +36,15 @@
     "name": "RawSunArt — Lacey Rawson",
     "description": "Custom watercolor tattoo artist in a private studio inside AION Tattoo, Dublin, Ohio, serving the Columbus metro.",
     "url": "https://rawsunart.com/",
-    "telephone": "+1-614-553-7172",
+    "telephone": "+1-614-858-5574",
     "email": "lacey@rawsunart.com",
-    "image": "https://rawsunart.com/images/webp/butterflysandwatercolor.webp",
+    "image": [
+      "https://rawsunart.com/images/webp/butterflysandwatercolor.webp",
+      "https://rawsunart.com/images/webp/birdybluewatercolor.webp",
+      "https://rawsunart.com/images/webp/cardinalcolor.webp",
+      "https://rawsunart.com/images/webp/cameraandflowers.webp"
+    ],
+    "hasMap": "https://maps.google.com/?q=2719+Sawbury+Blvd+Dublin+OH+43235",
     "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
@@ -339,6 +345,8 @@
       color: var(--gold);
     }
 
+    .hero-facts { font-size: 0.8rem; line-height: 1.6; color: var(--text-dim); max-width: 560px; margin: 0 0 1.6rem; }
+    .hero-facts a { color: var(--text-mid); text-decoration: none; }
     .hero-sub {
       font-size: 1rem;
       color: var(--text-mid);
@@ -1459,6 +1467,7 @@
     .reveal-delay-3 { transition-delay: 0.3s; }
     .reveal-delay-4 { transition-delay: 0.4s; }
   </style>
+  <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 
@@ -1468,7 +1477,8 @@
   <ul class="nav-links">
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Work</a></li>
-    <li><a href="#studio">Fine Art</a></li>
+    <li><a href="/tattoos">Tattoos</a></li>
+    <li><a href="/originals">Originals</a></li>
     <li><a href="#travel">Studio</a></li>
     <li><a href="#collectors">Collectors</a></li>
     <li><a href="#inquiry" class="nav-book">Book</a></li>
@@ -1485,10 +1495,11 @@
   <ul class="mobile-menu-links">
     <li><a href="#about">About</a></li>
     <li><a href="#portfolio">Work</a></li>
+    <li><a href="/tattoos">Tattoos: Styles &amp; Pricing</a></li>
+    <li><a href="/originals">Originals &amp; Prints</a></li>
     <li><a href="#studio">Fine Art</a></li>
     <li><a href="#travel">Studio</a></li>
     <li><a href="#collectors">Collectors</a></li>
-    <li><a href="#studio">Fine Art &amp; Prints</a></li>
     <li><a href="#inquiry" class="mobile-book">Book a Tattoo</a></li>
   </ul>
 </div>
@@ -1504,6 +1515,7 @@
       <span aria-hidden="true">Where<br><em>Story</em><br>Meets Skin</span>
     </h1>
     <p class="hero-sub">No templates. No copies. Every piece is original — drawn for you, from concept to ink. Custom watercolor tattoos from a private studio at AION Tattoo in Dublin, Ohio, just outside Columbus.</p>
+    <p class="hero-facts">Private studio inside AION Tattoo, 2719 Sawbury Blvd, Dublin, OH 43235 · Wednesday–Saturday, 12–6, additional hours by appointment · $250/hr, one-hour minimum, $100 deposit · <a href="tel:6148585574">614-858-5574</a></p>
     <div class="hero-ctas">
       <a href="#inquiry" class="btn-primary">
         <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
@@ -1715,12 +1727,12 @@
   <div class="section-inner">
     <div class="section-label">Where to Find Me</div>
     <h2 class="section-title reveal">The<br><em>Studio</em></h2>
-    <p class="studio-note reveal reveal-delay-1">Home base is a private studio inside AION Tattoo in Dublin, just outside Columbus. Books are open — custom work by appointment.</p>
+    <p class="studio-note reveal reveal-delay-1">My private studio is inside AION Tattoo in Dublin, just outside Columbus, and it is the only place I tattoo in this region. Books are open — custom work by appointment. Guest spots and events in other regions are welcome; ask.</p>
     <div class="travel-list reveal reveal-delay-2">
       <div class="travel-row">
         <div>
           <div class="travel-city">Dublin, OH <em>· AION Tattoo</em><span class="travel-badge">Books open</span></div>
-          <div class="travel-meta"><strong style="color:var(--text);">Wednesday–Saturday, 12–6</strong> · 2719 Sawbury Blvd · By appointment, year-round. Custom watercolor, botanical, fine line and black &amp; grey. I make exceptions outside those hours for existing clients, and shorter gaps and reschedules get filled through <a href="https://www.aiontattoo.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">AION Tattoo</a>'s booking.</div>
+          <div class="travel-meta"><strong style="color:var(--text);">Wednesday–Saturday, 12–6</strong> · additional hours by appointment only · 2719 Sawbury Blvd · Year-round. Custom watercolor, botanical, fine line and black &amp; grey. I make exceptions outside those hours for existing clients, and shorter gaps and reschedules get filled through <a href="https://www.aiontattoo.com" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">AION Tattoo</a>'s booking.</div>
         </div>
         <a class="travel-link" href="#inquiry">Book →</a>
       </div>
@@ -1816,7 +1828,7 @@
 
         <!-- Direct paths for at-home / returning clients -->
         <div class="direct-contact">
-          <a class="direct-btn" href="sms:+16145537172" aria-label="Text Lacey">
+          <a class="direct-btn" href="sms:+16148585574" aria-label="Text Lacey">
             <span class="direct-ico">💬</span>Text
           </a>
           <a class="direct-btn" href="https://ig.me/m/raw.sun.art" target="_blank" rel="noopener" aria-label="DM on Instagram">
@@ -1987,14 +1999,14 @@
           <span class="location-icon">🏛</span>
           <div>
             <div class="location-item-label">Studio</div>
-            <div class="location-item-value">Resident artist at <a href="https://www.aiontattoo.com" target="_blank" rel="noopener">AION Tattoo</a><br><span style="color:var(--text-dim);font-size:0.85rem;">Private suite · <a href="https://www.instagram.com/aiontattoo/" target="_blank" rel="noopener" style="color:var(--text-mid);">@aiontattoo</a><br>Wed–Sat, 12–6 · by appointment</span></div>
+            <div class="location-item-value">Resident artist at <a href="https://www.aiontattoo.com" target="_blank" rel="noopener">AION Tattoo</a><br><span style="color:var(--text-dim);font-size:0.85rem;">Private suite · <a href="https://www.instagram.com/aiontattoo/" target="_blank" rel="noopener" style="color:var(--text-mid);">@aiontattoo</a><br>Wed–Sat, 12–6 · additional hours by appointment only</span></div>
           </div>
         </div>
         <div class="location-item reveal reveal-delay-3">
           <span class="location-icon">📞</span>
           <div>
             <div class="location-item-label">Phone</div>
-            <div class="location-item-value"><a href="tel:6145537172">614-553-7172</a></div>
+            <div class="location-item-value"><a href="tel:6148585574">614-858-5574</a></div>
           </div>
         </div>
         <div class="location-item reveal reveal-delay-4">
@@ -2051,7 +2063,7 @@
       <ul class="footer-links">
         <li><a href="https://instagram.com/raw.sun.art" target="_blank" rel="noopener">@raw.sun.art</a></li>
         <li><a href="mailto:lacey@rawsunart.com">lacey@rawsunart.com</a></li>
-        <li><a href="tel:6145537172">614-553-7172</a></li>
+        <li><a href="tel:6148585574">614-858-5574</a></li>
         <li><a href="https://www.aiontattoo.com" target="_blank" rel="noopener">AION Tattoo, Dublin OH</a></li>
       </ul>
     </div>
