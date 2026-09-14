@@ -40,7 +40,7 @@ The daily circuit breaker — not the per-IP limit — is the layer that matters
 - **`/tattoos`** — ~935 words. Four styles with substance, sizing/placement guidance, price bands, 4-step booking flow, healing, 7 FAQs. `Service` + `FAQPage` + `BreadcrumbList`.
 - **`/originals`** — paintings, charcoal, ceramics, prints, how collecting works, 6 FAQs. `CollectionPage` + `FAQPage` + `BreadcrumbList`.
 - **`TattooParlor` + `Person` JSON-LD** on the homepage — NAP, geo, `areaServed`, services, opening hours.
-- **Phone corrected** from the Dialpad line to 614-553-7172 everywhere.
+- **Phone changed** from the Dialpad line site-wide. *(Superseded 2026-09-13: the number used in this session was not Lacey's. The correct and current number is **614-858-5574**, shipped in `56800cb`.)*
 - **Convention banner removed** — it was intercepting clicks on the hero CTA (verified via `elementFromPoint`).
 - `phoenix.html`, `aion.html` deleted; `/phoenix`, `/aion`, `/hellcity`, `/hell-city` → `/` (301).
 - `/Tattoos` → `/tattoos`; `/shop`, `/prints` → `/originals`; `/bookingrequest` → `/#inquiry`.
@@ -134,7 +134,7 @@ Proportionate framing: **the technical work is shipped and verified live.** The 
 
 - **Studio:** private suite inside AION Tattoo, 2719 Sawbury Blvd, Dublin, OH 43235 · `40.1134011, -83.087701`
 - **Hours:** Wednesday–Saturday, 12–6. Exceptions for existing clients; short gaps and reschedules filled through AION's own booking.
-- **Contact:** 614-553-7172 · lacey@rawsunart.com · `@raw.sun.art` (periods are correct)
+- **Contact:** 614-858-5574 · lacey@rawsunart.com · `@raw.sun.art` (periods are correct)
 - **Rates:** $250/hr, one-hour minimum, project-quoted above that. $100 deposit, credited to final price, non-refundable for no-shows, 48-hour cancellation notice.
 - **Design policy:** no pre-booking sketches. Design happens after deposit — that is what the deposit reserves.
 - **Retired:** Dialpad number `+1 614-858-5574` — rotated and deleted. Never reintroduce it as a contact method.
