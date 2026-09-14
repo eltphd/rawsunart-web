@@ -91,7 +91,7 @@
       --gold: #c9a050; --gold-light: #e0b96a; --gold-dim: rgba(201,160,80,0.12);
       --bg: #0a0805; --bg2: #111008; --bg3: #181410;
       --border: rgba(201,160,80,0.15);
-      --text: #f0ebe0; --text-mid: #a09070; --text-dim: #6a5f4a;
+      --text: #f0ebe0; --text-mid: #a09070; --text-dim: #857a62;
       --serif: 'Playfair Display', Georgia, serif;
       --sans: system-ui, -apple-system, 'Segoe UI', sans-serif;
     }
@@ -105,6 +105,7 @@
 
     main { max-width: 760px; margin: 0 auto; padding: 52px 24px 80px; }
     .crumb { font-size: 0.72rem; color: var(--text-dim); margin-bottom: 22px; }
+    .crumb a { color: var(--text-mid); text-decoration: underline; text-underline-offset: 3px; }
     .crumb a { color: var(--text-mid); text-decoration: none; }
     .eyebrow { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
     .eyebrow::before { content: ''; width: 28px; height: 1px; background: var(--gold); }
@@ -118,7 +119,7 @@
     .lede { font-size: 1.05rem; color: var(--text-mid); margin-bottom: 26px; }
     ul { margin: 0 0 18px 22px; color: var(--text-mid); }
     li { margin-bottom: 9px; }
-    a.inline { color: var(--gold); text-decoration: none; border-bottom: 1px solid rgba(201,160,80,0.3); }
+    a.inline { color: var(--gold); text-decoration: underline; text-decoration-color: rgba(201,160,80,0.55); text-underline-offset: 3px; }
 
     .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 26px 0 8px; }
     .gallery img { width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 8px; display: block; border: 1px solid var(--border); background: var(--bg2); }
@@ -150,6 +151,9 @@
     footer { text-align: center; padding: 30px 24px 44px; border-top: 1px solid var(--border); font-size: 0.75rem; color: var(--text-dim); }
     footer a { color: var(--text-mid); text-decoration: none; margin: 0 9px; }
   </style>
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
   <script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
